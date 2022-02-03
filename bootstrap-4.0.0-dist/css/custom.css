@@ -8,13 +8,20 @@
     }
     
 @media screen and (min-width: 601px) {
-    
+    .wrap{
+        position:relative;
+        display:inline-block;
+        top:-0.5em;
+        padding:5px;
+    }
     .centertitle>h1{
+        
         font-size:0.5em;
     }
     .navbar > .centertitle{
         position:relative;
         width:50%;
+        height:1em;
         padding:10px;
       }
 }
