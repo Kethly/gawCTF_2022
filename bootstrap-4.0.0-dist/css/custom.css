@@ -1,10 +1,19 @@
 
     .nav-item{
       padding: 0 0.5em;
-      border-left: 2px solid #FFFFFF
+      border-left: 2px solid #FFFFFF;
+      transition-property:box-shadow;
+      transition-duration:0.2s;
+      font-weight:bold;
+    }
+    .nav-item:hover{
+        box-shadow: 6px 6px 2px 1px rgba(29, 82, 27, 0.7);
+        transition-property:box-shadow;
+        transition-duration:0.2s;
     }
    .nav-item:is(:last-child){
       border-right: 2px solid #FFFFFF;
+      
     }
     
 @media screen and (min-width: 601px) {
@@ -13,6 +22,7 @@
         display:inline-block;
         top:-0.5em;
         padding:5px;
+        box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, 0.7);
     }
     .centertitle>h1{
         
