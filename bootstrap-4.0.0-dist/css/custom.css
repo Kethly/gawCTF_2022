@@ -1,15 +1,23 @@
 
     .nav-item{
+        position:relative;
+    display:block;
+      top: 0px;
+      left: 0px;
       padding: 0 0.5em;
       border-left: 2px solid #FFFFFF;
-      transition-property:box-shadow;
-      transition-duration:0.2s;
+      transition-property:box-shadow, top, left;
+      transition-duration:0.6s, 0.6s, 0.6s;
       font-weight:bold;
     }
     .nav-item:hover{
+        position:relative;
+        display:block;
         box-shadow: 6px 6px 2px 1px rgba(29, 82, 27, 0.7);
-        transition-property:box-shadow;
-        transition-duration:0.2s;
+        top:-3px;
+        left:-3px;
+        transition-property:box-shadow, top, left;
+        transition-duration:0.3s, 0.3s, 0.3s;
     }
    .nav-item:is(:last-child){
       border-right: 2px solid #FFFFFF;
