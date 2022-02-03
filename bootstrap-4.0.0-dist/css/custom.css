@@ -29,8 +29,11 @@
         position:relative;
         display:inline-block;
         top:-0.5em;
+        left:0em;
         padding:5px;
         box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, 0.7);
+        transition-property:box-shadow, top, left;
+        transition-duration:0.3s, 0.3s, 0.3s;
     }
     .centertitle>h1{
         
@@ -42,6 +45,14 @@
         height:1em;
         padding:10px;
       }
+    .wrap:hover{
+            box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.7);
+            top:-0.6em;
+            left:-0.3em;
+            transition-property:box-shadow, top, left;
+            transition-duration:0.3s, 0.3s, 0.3s;
+        
+    }
 }
 @media screen and (max-width: 600px) {
     
@@ -54,5 +65,33 @@
     .centertitle{
         margin:auto;
         padding:10px;
+    }
+    .wrap{
+        position:relative;
+        display:inline-block;
+        top:-0.4em;
+        left:0em;
+        padding:5px;
+        box-shadow: 4px 4px 1px 0.5px rgba(0, 0, 0, 0.7);
+        transition-property:box-shadow, top, left;
+        transition-duration:0.3s, 0.3s, 0.3s;
+    }
+    .centertitle>h1{
+        
+        font-size:0.5em;
+    }
+    .navbar > .centertitle{
+        position:relative;
+        width:50%;
+        height:0.8em;
+        padding:10px;
+      }
+    .wrap:hover{
+            box-shadow: 10px 10px 2px 1px rgba(0, 0, 0, 0.7);
+            top:-0.5em;
+            left:-0.4em;
+            transition-property:box-shadow, top, left;
+            transition-duration:0.3s, 0.3s, 0.3s;
+        
     }
   }
