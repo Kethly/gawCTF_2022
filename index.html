@@ -7,7 +7,7 @@
         <!--<script src="db.js"></script>-->
         <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css"/>
         <link rel="stylesheet" type="text/css" href="bootstrap-4.0.0-dist/css/custom.css" />
-        
+
         <!-- Owl Carousel -->
         <link rel="stylesheet" href="OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
         <link rel="stylesheet" href="OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css">
@@ -26,6 +26,7 @@
               nav: true,
               items: 1,
               singleItem: true,
+              mouseDrag: false,
               navText:["prev","next"],
               dots: true,
               center: true,
@@ -36,9 +37,6 @@
                   },
                   600: {
                       items: 3
-                  },
-                  1000: {
-                      items: 5
                   }
               }
           });
@@ -85,41 +83,6 @@
     </div>
     <div class="container bg-dark">
       <div class="owl-carousel owl-theme" id="ctf-carousel">
-        <div class="card item">
-          <div class="card-body">
-            <center>
-              <h1 class="card-title">Intro to Stego!</h1>
-              <h2 class="card-subtitle">What is LSB?</h2>
-            </center>
-            <textarea class="form-control" rows="3" placeholder="Type some text"></textarea>
-          </div>
-          <center><p class="card-footer">
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#Hint1" aria-expanded="false" aria-controls="Hint1">
-              Hint 1
-            </button>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#Hint2" aria-expanded="false" aria-controls="Hint2">
-              Hint 2
-            </button>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#Hint3" aria-expanded="false" aria-controls="Hint3">
-              Hint 3
-            </button>
-          </p></center>
-          <div class="collapse" id="Hint1">
-            <div class="card card-body">
-              Here's some placeholder text for a hint1.
-            </div>
-          </div>
-          <div class="collapse" id="Hint2">
-            <div class="card card-body">
-              Here's some placeholder text for a hint2.
-            </div>
-          </div>
-          <div class="collapse" id="Hint3">
-            <div class="card card-body">
-              Here's some placeholder text for a hint3.
-            </div>
-          </div>
-        </div>
         <div><img class="item img-fluid" src="coolcat.jpg" alt="First slide"></div>
         <div><img class="item img-fluid" src="coolcat.jpg" alt="First slide"></div>
         <div><img class="item img-fluid" src="coolcat.jpg" alt="First slide"></div>
@@ -129,7 +92,41 @@
         <div><img class="item img-fluid" src="politecat.jpg" alt="First slide"></div>
       </div>
     </div>
+
+    <template id="slide-template"> 
+      <div class="card item">
+        <div class="card-body">
+          <center>
+            <h1 class="card-title" id="challengetitle">Intro to Stego!</h1>
+            <p id="challengetext">placeholder text</p>
+          </center>
+          <textarea class="form-control" rows="3" placeholder="Type some text"></textarea>
+        </div>
+        <center><p class="card-footer">
+          <button id="hint-btn1" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#hint1" aria-expanded="false" aria-controls="hint1">
+            Hint 1
+          </button>
+          <button id="hint-btn2" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#hint2" aria-expanded="false" aria-controls="hint2">
+            Hint 2
+          </button>
+          <button id="hint-btn3" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#hint3" aria-expanded="false" aria-controls="hint3">
+            Hint 3
+          </button>
+        </p></center>
+        <div class="collapse card card-body" id="hint1">
+          Here's some placeholder text for a hint1.
+        </div>
+        <div class="collapse card card-body" id="hint2">
+          Here's some placeholder text for a hint2.
+        </div>
+        <div class="collapse card card-body" id="hint3">
+          Here's some placeholder text for a hint3.
+        </div>
+      </div>
+    </template>
+
 </body>
 <footer>
+  <script language="JavaScript" type="text/javascript" src="carouselslides.js"></script>
   <script language="JavaScript" type="text/javascript" src="OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
 </footer>
