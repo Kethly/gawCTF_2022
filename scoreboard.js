@@ -8,3 +8,4 @@ async function getScoreboard(){
   }
   document.getElementById("scoreboard").innerHTML = display;
 }
+getScoreboard();
