@@ -1,5 +1,5 @@
 async function getScoreboard(){
-  var publicdata = await fetch("https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit");
+  var publicdata = await fetch("https://opensheet.elk.sh/1XBd9iby84O-jNv0Wuvzewtm9ZKyEn87NpFmSIy-8HVA/scoreboard");
   var responses = await publicdata.json();
   var display = "";
   for(var i = 0; i < Object.keys(responses).length; i++){
