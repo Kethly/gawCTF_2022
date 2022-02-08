@@ -1,4 +1,3 @@
-const carouselID = "ctf-carousel"
 const datalink = "https://opensheet.elk.sh/1XBd9iby84O-jNv0Wuvzewtm9ZKyEn87NpFmSIy-8HVA/challenges"
 const templateID = "slide-template"
 
@@ -10,10 +9,13 @@ const templateID = "slide-template"
 // need to change IDs each time template is used
 // need to change references of the buttons as well
 
+// the div in index.html that the slides need to be appended into
+// are called slide1, slide2, so on
+
 async function makeCarouselSlides(){
     var challengedata = await fetch(datalink);
     var responses = await challengedata.json();
-    var carouselbody = document.getElementById(carouselID);
+
     var template = document.getElementById(templateID);
 
     for(var i = 0; i < Object.keys(responses).length; i++){
@@ -32,7 +34,7 @@ async function makeCarouselSlides(){
       challengehtml.id = "challengetext"+i;
 
       // set the hints and buttons
-      if(responses[i]["hint1"] != ""){
+      if(responses[i].hasOwnProperty("hint1")){
         var hinthtml = newSlide.getElementById("hint1");
         hinthtml.textContent = responses[i]["hint1"];
         hinthtml.id = "hint1"+i;
@@ -46,7 +48,7 @@ async function makeCarouselSlides(){
         newSlide.getElementById("hint1").remove();
         newSlide.getElementById("hint-btn1").remove();
       }
-      if(responses[i]["hint2"] != ""){
+      if(responses[i].hasOwnProperty("hint2")){
         var hinthtml = newSlide.getElementById("hint2");
         hinthtml.textContent = responses[i]["hint2"];
         hinthtml.id = "hint2"+i;
@@ -60,7 +62,7 @@ async function makeCarouselSlides(){
         newSlide.getElementById("hint2").remove();
         newSlide.getElementById("hint-btn2").remove();
       }
-      if(responses[i]["hint3"] != ""){
+      if(responses[i].hasOwnProperty("hint3")){
         var hinthtml = newSlide.getElementById("hint3");
         hinthtml.textContent = responses[i]["hint3"];
         hinthtml.id = "hint3"+i;
@@ -75,7 +77,9 @@ async function makeCarouselSlides(){
         newSlide.getElementById("hint-btn3").remove();
       }
 
-      carouselbody.appendChild(newSlide);
+      $('.owl-carousel')
+            .trigger('add.owl.carousel', [newSlide])
+            .trigger('refresh.owl.carousel');
     }
   }
  makeCarouselSlides();

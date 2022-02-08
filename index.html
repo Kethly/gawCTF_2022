@@ -26,19 +26,11 @@
               nav: true,
               items: 1,
               singleItem: true,
+              center: true,
               mouseDrag: false,
               navText:["prev","next"],
               dots: true,
-              center: true,
               autoWidth:true,
-              responsive: {
-                  0: {
-                      items: 1
-                  },
-                  600: {
-                      items: 3
-                  }
-              }
           });
         });  
         </script> 
@@ -83,24 +75,18 @@
     </div>
     <div class="container bg-dark">
       <div class="owl-carousel owl-theme" id="ctf-carousel">
-        <div><img class="item img-fluid" src="coolcat.jpg" alt="First slide"></div>
-        <div><img class="item img-fluid" src="coolcat.jpg" alt="First slide"></div>
-        <div><img class="item img-fluid" src="coolcat.jpg" alt="First slide"></div>
-        <div><img class="item img-fluid" src="coolcat.jpg" alt="First slide"></div>
-        <div><img class="item img-fluid" src="coolcat.jpg" alt="First slide"></div>
-        <div><img class="item img-fluid" src="politecat.jpg" alt="First slide"></div>
-        <div><img class="item img-fluid" src="politecat.jpg" alt="First slide"></div>
+        
       </div>
     </div>
 
     <template id="slide-template"> 
-      <div class="card item">
+      <div class="card item" style="width: 150px;">
         <div class="card-body">
           <center>
             <h1 class="card-title" id="challengetitle">Intro to Stego!</h1>
             <p id="challengetext">placeholder text</p>
           </center>
-          <textarea class="form-control" rows="3" placeholder="Type some text"></textarea>
+          <input class="form-control" placeholder="Type some text">
         </div>
         <center><p class="card-footer">
           <button id="hint-btn1" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#hint1" aria-expanded="false" aria-controls="hint1">
@@ -113,13 +99,13 @@
             Hint 3
           </button>
         </p></center>
-        <div class="collapse card card-body" id="hint1">
+        <div class="collapse card-body" id="hint1">
           Here's some placeholder text for a hint1.
         </div>
-        <div class="collapse card card-body" id="hint2">
+        <div class="collapse card-body" id="hint2">
           Here's some placeholder text for a hint2.
         </div>
-        <div class="collapse card card-body" id="hint3">
+        <div class="collapse card-body" id="hint3">
           Here's some placeholder text for a hint3.
         </div>
       </div>
