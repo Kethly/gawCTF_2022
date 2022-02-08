@@ -84,12 +84,13 @@
         <div class="card-body">
           <center>
             <h1 class="card-title" id="challengetitle">Intro to Stego!</h1>
-            <p id="challengetext">placeholder text</p>
+            
           </center>
-          <input class="form-control" placeholder="Type some text">
+          <p id="challengetext">placeholder text</p>
+          <input class="form-control" placeholder="gawCTF{FLAG}">
         </div>
         <center><p class="card-footer">
-          <button id="hint-btn1" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#hint1" aria-expanded="false" aria-controls="hint1">
+          <button id="hint-btn1" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#hintcollapse1" aria-expanded="false" aria-controls="hintcollapse1">
             Hint 1
           </button>
           <button id="hint-btn2" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#hint2" aria-expanded="false" aria-controls="hint2">
@@ -99,15 +100,22 @@
             Hint 3
           </button>
         </p></center>
-        <div class="collapse card-body" id="hint1">
-          Here's some placeholder text for a hint1.
+        <div class="collapse" id="hintcollapse1">
+            <div class="card card-body" id="hint1">
+                Here's some placeholder text for a hint1.
+              </div>
         </div>
-        <div class="collapse card-body" id="hint2">
-          Here's some placeholder text for a hint2.
+        <div class="collapse" id="hintcollapse2">
+            <div class="card card-body" id="hint2">
+                Here's some placeholder text for a hint1.
+              </div>
         </div>
-        <div class="collapse card-body" id="hint3">
-          Here's some placeholder text for a hint3.
+        <div class="collapse" id="hintcollapse3">
+            <div class="card card-body" id="hint3">
+                Here's some placeholder text for a hint1.
+              </div>
         </div>
+    
       </div>
     </template>
 

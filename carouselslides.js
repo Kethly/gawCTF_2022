@@ -30,52 +30,73 @@ async function makeCarouselSlides(){
       
       // set the challenge text and set the id
       var challengehtml = newSlide.getElementById("challengetext");
-      challengehtml.textContent = responses[i]["challengetext"];
+      challengehtml.textContent = responses[i]["challengetext"].replace( new RegExp("\\\\n", 'g'), "\r\n");
       challengehtml.id = "challengetext"+i;
+      challengehtml.classList.add("challtext");
+      
+      for(var x = 1; x <= 3; x++){
+        var hintnum = "hint" + x;
+        if(responses[i].hasOwnProperty(hintnum)){
+          var hinthtml = newSlide.getElementById(hintnum);
+          hinthtml.textContent = "[" + x.toString() + "]. " + responses[i][hintnum];
+          hinthtml.id = hintnum+i;
+        var hintcoll = "hintcollapse" + x;
+          var hintcollapse = newSlide.getElementById(hintcoll);
+          hintcollapse.id = hintcoll+i;
+          var btn = newSlide.getElementById("hint-btn" + x);
+          btn.setAttribute('data-target', "#" + hintcoll +i);
+          btn.setAttribute('aria-control', hintcoll+i);
+          btn.id = "hint-btn" + x +i;
+        }
+        else{
+          newSlide.getElementById("hint" + x).remove();
+          newSlide.getElementById("hint-btn" + x).remove();
+        }
+      }
+      // Resolved the previous code into a loop
+      // // set the hints and buttons
+      // if(responses[i].hasOwnProperty("hint1")){
+      //   var hinthtml = newSlide.getElementById("hint1");
+      //   hinthtml.textContent = responses[i]["hint1"];
+      //   hinthtml.id = "hint1"+i;
 
-      // set the hints and buttons
-      if(responses[i].hasOwnProperty("hint1")){
-        var hinthtml = newSlide.getElementById("hint1");
-        hinthtml.textContent = responses[i]["hint1"];
-        hinthtml.id = "hint1"+i;
+      //   var btn = newSlide.getElementById("hint-btn1");
+      //   btn.setAttribute('data-target', "#hint1"+i);
+      //   btn.setAttribute('aria-control', "hint1"+i);
+      //   btn.id = "hint-btn1"+i;
+      // }
+      // else{
+      //   newSlide.getElementById("hint1").remove();
+      //   newSlide.getElementById("hint-btn1").remove();
+      // }
+      // if(responses[i].hasOwnProperty("hint2")){
+      //   var hinthtml = newSlide.getElementById("hint2");
+      //   hinthtml.textContent = responses[i]["hint2"];
+      //   hinthtml.id = "hint2"+i;
 
-        var btn = newSlide.getElementById("hint-btn1");
-        btn.setAttribute('data-target', "#hint1"+i);
-        btn.setAttribute('aria-control', "hint1"+i);
-        btn.id = "hint-btn1"+i;
-      }
-      else{
-        newSlide.getElementById("hint1").remove();
-        newSlide.getElementById("hint-btn1").remove();
-      }
-      if(responses[i].hasOwnProperty("hint2")){
-        var hinthtml = newSlide.getElementById("hint2");
-        hinthtml.textContent = responses[i]["hint2"];
-        hinthtml.id = "hint2"+i;
+      //   var btn = newSlide.getElementById("hint-btn2");
+      //   btn.setAttribute('data-target', "#hint2"+i);
+      //   btn.setAttribute('aria-control', "hint2"+i);
+      //   btn.id = "hint-btn2"+i;
+      // }
+      // else{
+      //   newSlide.getElementById("hint2").remove();
+      //   newSlide.getElementById("hint-btn2").remove();
+      // }
+      // if(responses[i].hasOwnProperty("hint3")){
+      //   var hinthtml = newSlide.getElementById("hint3");
+      //   hinthtml.textContent = responses[i]["hint3"];
+      //   hinthtml.id = "hint3"+i;
 
-        var btn = newSlide.getElementById("hint-btn2");
-        btn.setAttribute('data-target', "#hint2"+i);
-        btn.setAttribute('aria-control', "hint2"+i);
-        btn.id = "hint-btn2"+i;
-      }
-      else{
-        newSlide.getElementById("hint2").remove();
-        newSlide.getElementById("hint-btn2").remove();
-      }
-      if(responses[i].hasOwnProperty("hint3")){
-        var hinthtml = newSlide.getElementById("hint3");
-        hinthtml.textContent = responses[i]["hint3"];
-        hinthtml.id = "hint3"+i;
-
-        var btn = newSlide.getElementById("hint-btn3");
-        btn.setAttribute('data-target', "#hint3"+i);
-        btn.setAttribute('aria-control', "hint3"+i);
-        btn.id = "hint-btn3"+i;
-      }
-      else{
-        newSlide.getElementById("hint3").remove();
-        newSlide.getElementById("hint-btn3").remove();
-      }
+      //   var btn = newSlide.getElementById("hint-btn3");
+      //   btn.setAttribute('data-target', "#hint3"+i);
+      //   btn.setAttribute('aria-control', "hint3"+i);
+      //   btn.id = "hint-btn3"+i;
+      // }
+      // else{
+      //   newSlide.getElementById("hint3").remove();
+      //   newSlide.getElementById("hint-btn3").remove();
+      // }
 
       $('.owl-carousel')
             .trigger('add.owl.carousel', [newSlide])

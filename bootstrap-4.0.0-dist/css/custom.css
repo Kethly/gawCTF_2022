@@ -145,5 +145,13 @@
   }
 
 #ctf-carousel .form-control{
-    margin: 10px;
+    width: 30%;
+    box-shadow: 6px 6px 2px 1px rgba(29, 82, 27, 0.7);
+    margin: auto;
+}
+#ctf-carousel .challtext{
+    overflow-wrap: break-word;
+    white-space: pre-line;
+    
+
 }
