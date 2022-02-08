@@ -2,6 +2,7 @@
   "name": "gawCTF",
   "version": "1.0.0",
   "devDependencies": {
-    "googleapis":"^95.0.0"
+    "googleapis":"^95.0.0",
+    "node-fetch":"^2.6.0"
   }
 }
