@@ -34,47 +34,21 @@ async function makeCarouselSlides(){
       challengehtml.id = "challengetext"+i;
 
       // set the hints and buttons
-      if(responses[i].hasOwnProperty("hint1")){
-        var hinthtml = newSlide.getElementById("hint1");
-        hinthtml.textContent = responses[i]["hint1"];
-        hinthtml.id = "hint1"+i;
+      for(var h = 1; h <= 3; h++){
+        if(responses[i].hasOwnProperty("hint"+h.toString())){
+          var hinthtml = newSlide.getElementById("hint"+h.toString());
+          hinthtml.textContent = responses[i]["hint"+h.toString()];
+          hinthtml.id = "hint"+h.toString()+i.toString();
 
-        var btn = newSlide.getElementById("hint-btn1");
-        btn.setAttribute('data-target', "#hint1"+i);
-        btn.setAttribute('aria-control', "hint1"+i);
-        btn.id = "hint-btn1"+i;
-      }
-      else{
-        newSlide.getElementById("hint1").remove();
-        newSlide.getElementById("hint-btn1").remove();
-      }
-      if(responses[i].hasOwnProperty("hint2")){
-        var hinthtml = newSlide.getElementById("hint2");
-        hinthtml.textContent = responses[i]["hint2"];
-        hinthtml.id = "hint2"+i;
-
-        var btn = newSlide.getElementById("hint-btn2");
-        btn.setAttribute('data-target', "#hint2"+i);
-        btn.setAttribute('aria-control', "hint2"+i);
-        btn.id = "hint-btn2"+i;
-      }
-      else{
-        newSlide.getElementById("hint2").remove();
-        newSlide.getElementById("hint-btn2").remove();
-      }
-      if(responses[i].hasOwnProperty("hint3")){
-        var hinthtml = newSlide.getElementById("hint3");
-        hinthtml.textContent = responses[i]["hint3"];
-        hinthtml.id = "hint3"+i;
-
-        var btn = newSlide.getElementById("hint-btn3");
-        btn.setAttribute('data-target', "#hint3"+i);
-        btn.setAttribute('aria-control', "hint3"+i);
-        btn.id = "hint-btn3"+i;
-      }
-      else{
-        newSlide.getElementById("hint3").remove();
-        newSlide.getElementById("hint-btn3").remove();
+          var btn = newSlide.getElementById("hint-btn"+h.toString());
+          btn.setAttribute('data-target', "#hint"+h.toString()+i.toString());
+          btn.setAttribute('aria-control', "hint"+h.toString()+i.toString());
+          btn.id = "hint-btn"+h.toString()+i.toString();
+        }
+        else{
+          newSlide.getElementById("hint"+h.toString()).remove();
+          newSlide.getElementById("hint-btn"+h.toString()).remove();
+        }
       }
 
       $('.owl-carousel')
