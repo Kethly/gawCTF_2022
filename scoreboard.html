@@ -1,4 +1,63 @@
 <!doctype HTML>
-<script src="scoreboard.js"></script>
-<div id="scoreboard"></div>
-</html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!--<script src="db.js"></script>-->
+        <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="bootstrap-4.0.0-dist/css/custom.css" />
+
+        <!-- Calling jquery first -->
+        <script language="JavaScript" type="text/javascript" src="jquery-3.6.0.js"></script>
+        <script language="JavaScript" type="text/javascript" src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+        
+        <script src="scoreboard.js"></script>
+    </head>
+<body>
+    <nav class="navbar fixed-top bg-success navbar-expand-lg navbar-dark rounded-bottom">
+        <!--Replace href with home later-->
+        <a class="navbar-brand font-weight-bold" href="#"><--[gawCTF]--></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link" href="index.html">Compete</a>
+              <div class="vr"></div>
+              <a class="nav-item nav-link " href="#">Scoreboard</a>
+              
+            </div>
+           
+          </div>
+        <div class="centertitle display-2 ">
+            <div class="wrap border border-dark bg-dark rounded">
+            <h1 class="text-danger">
+                <div class='type'></div>
+                gawCTF{_Scoreboard_}
+            
+            </h1>
+        </div>
+        </div>
+        <span class="navbar-nav">
+            <a class="nav-item nav-link" href="#">Register</a>
+            <a class="nav-item nav-link" href="#">Login</a>
+            
+        </span>
+    </nav>
+
+    <div class="d-flex justify-content-evenly">
+        <table id="scoreboard" class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Username</th>
+                    <th scope="col">Score</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</body>
+

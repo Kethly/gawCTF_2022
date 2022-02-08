@@ -118,7 +118,7 @@
     to { border-color: white; }
   }
 
-  body { padding-top: 70px; }
+  body { padding-top: 10%; }
   @media screen and (max-width: 768px) {
       body { padding-top: 0px; }
   }
@@ -152,6 +152,9 @@
 #ctf-carousel .challtext{
     overflow-wrap: break-word;
     white-space: pre-line;
-    
+}
 
+.hint-btn{
+    background-color:MediumPurple;
+    color:white;
 }

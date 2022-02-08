@@ -2,6 +2,7 @@ const datalink = "https://opensheet.elk.sh/1XBd9iby84O-jNv0Wuvzewtm9ZKyEn87NpFmS
 const templateID = "slide-template"
 
 // the IDs for parts of the slide:
+// slide: slide
 // challengetitle: challangetitle
 // challengetext: challengetext
 // hints: hint1, hint2, hint3
@@ -53,50 +54,9 @@ async function makeCarouselSlides(){
           newSlide.getElementById("hint-btn" + x).remove();
         }
       }
-      // Resolved the previous code into a loop
-      // // set the hints and buttons
-      // if(responses[i].hasOwnProperty("hint1")){
-      //   var hinthtml = newSlide.getElementById("hint1");
-      //   hinthtml.textContent = responses[i]["hint1"];
-      //   hinthtml.id = "hint1"+i;
 
-      //   var btn = newSlide.getElementById("hint-btn1");
-      //   btn.setAttribute('data-target', "#hint1"+i);
-      //   btn.setAttribute('aria-control', "hint1"+i);
-      //   btn.id = "hint-btn1"+i;
-      // }
-      // else{
-      //   newSlide.getElementById("hint1").remove();
-      //   newSlide.getElementById("hint-btn1").remove();
-      // }
-      // if(responses[i].hasOwnProperty("hint2")){
-      //   var hinthtml = newSlide.getElementById("hint2");
-      //   hinthtml.textContent = responses[i]["hint2"];
-      //   hinthtml.id = "hint2"+i;
-
-      //   var btn = newSlide.getElementById("hint-btn2");
-      //   btn.setAttribute('data-target', "#hint2"+i);
-      //   btn.setAttribute('aria-control', "hint2"+i);
-      //   btn.id = "hint-btn2"+i;
-      // }
-      // else{
-      //   newSlide.getElementById("hint2").remove();
-      //   newSlide.getElementById("hint-btn2").remove();
-      // }
-      // if(responses[i].hasOwnProperty("hint3")){
-      //   var hinthtml = newSlide.getElementById("hint3");
-      //   hinthtml.textContent = responses[i]["hint3"];
-      //   hinthtml.id = "hint3"+i;
-
-      //   var btn = newSlide.getElementById("hint-btn3");
-      //   btn.setAttribute('data-target', "#hint3"+i);
-      //   btn.setAttribute('aria-control', "hint3"+i);
-      //   btn.id = "hint-btn3"+i;
-      // }
-      // else{
-      //   newSlide.getElementById("hint3").remove();
-      //   newSlide.getElementById("hint-btn3").remove();
-      // }
+      // set the id of the new slide
+      newSlide.getElementById("slide").id = "slide"+i;
 
       $('.owl-carousel')
             .trigger('add.owl.carousel', [newSlide])
