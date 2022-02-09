@@ -38,5 +38,5 @@ sheets.spreadsheets.values.get({
        }
    }
 });
-return { statusCode: 200, body: JSON.stringify(test) };
+return { statusCode: 200, body: JSON.stringify(test), };
 };
