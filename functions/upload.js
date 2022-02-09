@@ -10,7 +10,7 @@ exports.handler = async (event, context) => {
        ['https://www.googleapis.com/auth/spreadsheets']);
 //authenticate request
   var test;
-jwtClient.authorize(function (err, tokens) {
+await jwtClient.authorize(function (err, tokens) {
  if (err) {
    test = err;
    return;
@@ -23,7 +23,7 @@ let spreadsheetId = process.env.path;
 let sheetRange = 'Users!A1:C'
 let sheets = google.sheets('v4');
 
-sheets.spreadsheets.values.get({
+await sheets.spreadsheets.values.get({
    auth: jwtClient,
    spreadsheetId: spreadsheetId,
    range: sheetRange
