@@ -1,11 +1,41 @@
 var token = process.env.TOKEN;
+var auth = Client
 const fetch = require('node-fetch');
 //googleapis
 const { google } = require("googleapis");
 exports.handler = async (event, context) => {
-  var SCOPES = "https://www.googleapis.com/auth/spreadsheets";
-  var path = "15VYcKvXIXfGaLPMzBojLMOnt-ajWn505lNzWwTmNoD0";
-  var read = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${path}/?key=${token}`);
-  var values = await read.json();
-return { statusCode: 200, body: JSON.stringify(values), };
+  let jwtClient = new google.auth.JWT(
+       process.env.client_email,
+       null,
+       process.env.private_key,
+       ['https://www.googleapis.com/auth/spreadsheets']);
+//authenticate request
+jwtClient.authorize(function (err, tokens) {
+ if (err) {
+   console.log(err);
+   return;
+ } else {
+   console.log("Successfully connected!");
+ }
+});
+//Google Sheets API
+let spreadsheetId = process.env.path;
+let sheetRange = 'Users!A1:C'
+let sheets = google.sheets('v4');
+var test = [];
+sheets.spreadsheets.values.get({
+   auth: jwtClient,
+   spreadsheetId: spreadsheetId,
+   range: sheetRange
+}, function (err, response) {
+   if (err) {
+       console.log('The API returned an error: ' + err);
+   } else {
+       console.log('Movie list from Google Sheets:');
+       for (let row of response.values) {
+           test.push('Title [%s]\t\tRating [%s]' + " " + row[0] + " "+ row[1]);
+       }
+   }
+});
+return { statusCode: 200, body: JSON.stringify(test) };
 };
