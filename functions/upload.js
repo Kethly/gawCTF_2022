@@ -6,8 +6,8 @@ exports.handler = async (event, context) => {
   let jwtClient = new google.auth.JWT(
        process.env.client_email,
        null,
-       process.env.private_key.replace(/\\n/g, '\n'),
-       ['https://www.googleapis.com/auth/spreadsheets']);
+       process.env.private_key, 
+       ['https://www.googleapis.com/auth/spreadsheets']); //.replace(/\\n/g, '\n')
 //authenticate request
   var test = "hello";
 await jwtClient.authorize(function (err, tokens) {
