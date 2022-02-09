@@ -9,19 +9,20 @@ exports.handler = async (event, context) => {
        process.env.private_key,
        ['https://www.googleapis.com/auth/spreadsheets']);
 //authenticate request
+  var test;
 jwtClient.authorize(function (err, tokens) {
  if (err) {
-   console.log(err);
+   test = err;
    return;
  } else {
-   console.log("Successfully connected!");
+   test = "Successfully connected!";
  }
 });
 //Google Sheets API
 let spreadsheetId = process.env.path;
 let sheetRange = 'Users!A1:C'
 let sheets = google.sheets('v4');
-var test = [];
+
 sheets.spreadsheets.values.get({
    auth: jwtClient,
    spreadsheetId: spreadsheetId,
@@ -31,7 +32,7 @@ sheets.spreadsheets.values.get({
        console.log('The API returned an error: ' + err);
    } else {
        console.log('Movie list from Google Sheets:');
-     test = responpse.values;
+     //test = responpse.values;
        for (let row of response.values) {
            //test.push('Title [%s]\t\tRating [%s]' + " " + row[0] + " "+ row[1]);
        }
