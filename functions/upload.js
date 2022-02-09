@@ -12,7 +12,7 @@ exports.handler = async (event, context) => {
   var test = "hello";
 await jwtClient.authorize(function (err, tokens) {
  if (err) {
-   return { statusCode: 200, body: JSON.stringify(err), };
+   return { statusCode: 200, body: JSON.stringify("something went wrong"), };
    return;
  } else {
    return { statusCode: 200, body: JSON.stringify("successfully connected!"), };
