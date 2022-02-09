@@ -31,7 +31,7 @@ sheets.spreadsheets.values.get({
        console.log('The API returned an error: ' + err);
    } else {
        console.log('Movie list from Google Sheets:');
-     test = await responpse.values;
+     test = responpse.values;
        for (let row of response.values) {
            //test.push('Title [%s]\t\tRating [%s]' + " " + row[0] + " "+ row[1]);
        }
