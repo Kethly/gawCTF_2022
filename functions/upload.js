@@ -9,7 +9,7 @@ exports.handler = async (event, context) => {
        process.env.private_key,
        ['https://www.googleapis.com/auth/spreadsheets']);
 //authenticate request
-  var test;
+  var test = "hello";
 await jwtClient.authorize(function (err, tokens) {
  if (err) {
    test = err;
