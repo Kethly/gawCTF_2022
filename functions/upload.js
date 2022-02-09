@@ -1,5 +1,4 @@
 var token = process.env.TOKEN;
-var auth = Client
 const fetch = require('node-fetch');
 //googleapis
 const { google } = require("googleapis");
