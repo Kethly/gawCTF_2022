@@ -12,10 +12,10 @@ exports.handler = async (event, context) => {
   var test = "hello";
 await jwtClient.authorize(function (err, tokens) {
  if (err) {
-   test = err;
+   return { statusCode: 200, body: JSON.stringify(err), };
    return;
  } else {
-   test = "Successfully connected!";
+   return { statusCode: 200, body: JSON.stringify("successfully connected!"), };
  }
 });
 //Google Sheets API
@@ -38,5 +38,5 @@ await sheets.spreadsheets.values.get({
        }
    }
 });
-return { statusCode: 200, body: JSON.stringify(test), };
+//return { statusCode: 200, body: JSON.stringify(test), };
 };
