@@ -37,7 +37,7 @@ async function makeCarouselSlides(){
       
       for(var x = 1; x <= 3; x++){
         var hintnum = "hint" + x;
-        if(responses[i].hasOwnProperty(hintnum)){
+        if(responses[i].hasOwnProperty(hintnum) && !(responses[i][hintnum] === "")){
           var hinthtml = newSlide.getElementById(hintnum);
           hinthtml.textContent = "[" + x.toString() + "]. " + responses[i][hintnum];
           hinthtml.id = hintnum+i;

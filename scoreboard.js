@@ -4,7 +4,7 @@ async function getScoreboard(){
   var display = "";
   for(var i = 0; i < Object.keys(responses).length; i++){
     display += JSON.stringify(responses[i]) + "\n";
-    console.log(JSON.stringify(responses[i]) + "\n");
+    //console.log(JSON.stringify(responses[i]) + "\n");
 
     // add a row to the table with the scores
     // adding into the tbody of the table
