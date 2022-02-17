@@ -16,7 +16,13 @@
         <!-- Calling jquery first -->
         <script language="JavaScript" type="text/javascript" src="jquery-3.6.0.js"></script>
         <script language="JavaScript" type="text/javascript" src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
-        
+        <script>
+          
+          $(function(){
+            $("#nav-placeholder").load("nav.html");
+        });
+      
+        </script>
         
         <!-- Carousel -->
         <script language="JavaScript" type="text/javascript">
@@ -36,45 +42,17 @@
         });  
         </script> 
     </head>
-    <nav class="navbar fixed-top bg-success navbar-expand-lg navbar-dark rounded-bottom">
-        <!--Replace href with home later-->
-        <a class="navbar-brand font-weight-bold" href="#"><--[gawCTF]--></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-item nav-link" href="#">Compete</a>
-              <div class="vr"></div>
-              <a class="nav-item nav-link " href="scoreboard.html">Scoreboard</a>
-              
-            </div>
-           
-          </div>
-        <div class="centertitle display-2 ">
-            <div class="wrap border border-dark bg-dark rounded">
-            <h1 class="text-danger">
-                <div class='type'></div>
-                gawCTF{_2022_}
-            
-            </h1>
-        </div>
-        </div>
-        <span class="navbar-nav">
-            <a class="nav-item nav-link" href="#">Register</a>
-            <a class="nav-item nav-link" href="#">Login</a>
-            
-        </span>
-    </nav>
+
 <body>
-    <div class="container bg-dark">
-        <div class ="bg-gradient-dark"> 
+  <div id="nav-placeholder"></div>
+    <div class="container bg-white">
+        <div class ="bg-gradient"> 
             <p class="text-white">
                 hello world!
             </p>
         </div>
     </div>
-    <div class="container bg-dark">
+    <div class="container bg-dark pt-5">
       <div class="owl-carousel owl-theme" id="ctf-carousel">
         
       </div>
@@ -119,9 +97,10 @@
     
       </div>
     </template>
-
+    
 </body>
 <footer>
   <script language="JavaScript" type="text/javascript" src="carouselslides.js"></script>
   <script language="JavaScript" type="text/javascript" src="OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+  
 </footer>
