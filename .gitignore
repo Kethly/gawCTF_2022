@@ -1,5 +1,4 @@
-# Local Netlify folder
-.netlify
+
 #ignore node modules
 node_modules
 package-lock.json
