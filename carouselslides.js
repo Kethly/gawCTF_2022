@@ -35,19 +35,24 @@ async function makeCarouselSlides(){
       challengehtml.id = "challengetext"+i;
       challengehtml.classList.add("challtext");
       
+      // set the id of the input box, will be used to check the flags
+      var inputBox = newSlide.getElementById("inputBox");
+      inputBox.id = 'inputBox'+i;
+
+      // x is the number hint
       for(var x = 1; x <= 3; x++){
         var hintnum = "hint" + x;
         if(responses[i].hasOwnProperty(hintnum) && !(responses[i][hintnum] === "")){
           var hinthtml = newSlide.getElementById(hintnum);
           hinthtml.textContent = "[" + x.toString() + "]. " + responses[i][hintnum];
           hinthtml.id = hintnum+i;
-        var hintcoll = "hintcollapse" + x;
+          var hintcoll = "hintcollapse" + x;
           var hintcollapse = newSlide.getElementById(hintcoll);
           hintcollapse.id = hintcoll+i;
           var btn = newSlide.getElementById("hint-btn" + x);
           btn.setAttribute('data-target', "#" + hintcoll +i);
           btn.setAttribute('aria-control', hintcoll+i);
-          btn.id = "hint-btn" + x +i;
+          btn.id = "hint-btn" + x + i;
         }
         else{
           newSlide.getElementById("hint" + x).remove();
