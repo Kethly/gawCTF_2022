@@ -55,4 +55,39 @@ async function authCookies(inputBoxId){
     });
     var response = await verify.json();
     console.log(response);
+    if(response){
+        // the user authentication was successful
+        // get the flag submission from the input box
+        console.log("user auth with cookies was successful");
+        var submission = document.getElementById(inputBoxId).getElementsByClassName('form-control')[0].value;
+        console.log("here is the submitted flag:");
+        console.log(submission);
+        // console.log(document.getElementById(inputBoxId).getElementsByClassName('form-control'));
+        
+        // checkFlag also updates the spreadsheet with the new flag submission
+        var flagCheck = await fetch("/api/checkFlag", {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                submission: submission,
+                userId: userId,
+                inputBoxId: inputBoxId
+            })
+        });
+        var flagResponse = await flagCheck.json();
+        if(flagResponse){
+            // flag was correct
+            console.log("The flag was correct, congrats!");
+        }
+        else{
+            // flag was incorrect
+            console.log("The flag was incorrect!");
+        }
+    }
+    else{
+        // the user authentication was unsuccessful
+    }
 }
