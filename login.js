@@ -6,10 +6,10 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
 
-var username = "keth"
+// var username = "keth"
 async function auth(){
 
-    var email = document.getElementById("typeEmailX").value;
+    var username = document.getElementById("typeEmailX").value;
     var password = document.getElementById("typePasswordX").value;
     var login = await fetch("/api/auth", {
         method: "post",
@@ -20,20 +20,21 @@ async function auth(){
       
         //make sure to serialize your JSON body
         body: JSON.stringify({
-          email: email,
+          username: username,
           password: password
         })
       });
     var response = await login.json();
     console.log(response);
-    if(response === ""){
+    if(response === "" || response < 0){
+        // console.log("going to show the failure toast");
         $('#alert-fail').toast('show');
     } else {
         
         $('#alert-success').toast('show');
         setCookie("username", username, 31);
-        setCookie("email", email, 31);
         setCookie("password", password, 31);
+        setCookie("userId", response, 31);
         window.location.replace("/index.html");
     }
 }

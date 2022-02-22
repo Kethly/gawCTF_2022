@@ -22,16 +22,16 @@ function getCookie(cname) {
     return "";
 }
 
-let testInputId = 'inputBox2'; //question ids start at 0
+// let testInputId = 'inputBox2'; //question ids start at 0
 // let testSubmission = '-1470554952';
-let testSubmission = 'ilovecats';
-let testUser = 'Firefox';
-let testPassword = 'aaaaa';
-let testUserId = 4;
+// let testSubmission = 'ilovecats';
+// let testUser = 'Firefox';
+// let testPassword = 'aaaaa';
+// let testUserId = 4;
 
-setCookie("username", testUser, 31);
-setCookie("password", testPassword, 31);
-setCookie("userId", testUserId, 31);
+// setCookie("username", testUser, 31);
+// setCookie("password", testPassword, 31);
+// setCookie("userId", testUserId, 31);
 
 // this program is expected to be used after a person logs in
 
