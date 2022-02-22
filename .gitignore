@@ -2,5 +2,11 @@
 #ignore node modules
 node_modules
 package-lock.json
+<<<<<<< HEAD
 client_secret.json
 functions/client_secret.json
+=======
+# Local Netlify folder
+.netlify
+.netlify/functions/manifest.json
+>>>>>>> newuserstaterecovered

@@ -6,9 +6,42 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
 
-// var email = "keth"
-async function auth(){
+//var email = "keth"
+var loginbuttonwidth;
+window.onload = (event) => {
+  
+  loginbuttonwidth = document.getElementById("loginbtn").clientWidth;
+  console.log("hi")
+};
 
+function setLoad(){
+    document.getElementById("loginbtn").disabled = true;
+    
+    document.getElementById("loginbtn").style.width = ((loginbuttonwidth * 0.7).toString() + "px").toString();
+    document.getElementById("logintext").innerText ="";
+    
+    document.getElementById("loginspin").hidden = false;
+}
+function resetLogin(){
+  
+  return new Promise((resolve) => {
+    console.log("testing");
+    document.getElementById("loginbtn").disabled = false;
+    document.getElementById("logintext").innerText ="Login";
+    document.getElementById("loginspin").hidden = true;
+    document.getElementById("loginbtn").style.width = ((loginbuttonwidth).toString() + "px").toString();
+    resolve();
+  });
+
+}
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+async function auth(){
+    setLoad();
+    
     var email = document.getElementById("typeEmailX").value;
     var password = document.getElementById("typePasswordX").value;
     var login = await fetch("/api/auth", {
@@ -25,10 +58,13 @@ async function auth(){
         })
       });
     var response = await login.json();
+    await sleep(1000);
     console.log("login.js got this from auth: " + response);
     if(response === "" || response < 0){
         // console.log("going to show the failure toast");
         $('#alert-fail').toast('show');
+        resetLogin();
+        
     } else {
         
         $('#alert-success').toast('show');
