@@ -29,7 +29,7 @@ function getCookie(cname) {
 // let testPassword = 'aaaaa';
 // let testUserId = 4;
 
-// setCookie("username", testUser, 31);
+// setCookie("email", testUser, 31);
 // setCookie("password", testPassword, 31);
 // setCookie("userId", testUserId, 31);
 
@@ -37,8 +37,8 @@ function getCookie(cname) {
 
 async function authCookies(inputBoxId){
     // inputBoxId should be the id of the element calling this function
-    console.log(inputBoxId);
-    username = getCookie("username");
+    console.log("submitFlag.js is using this inputBoxId: " + inputBoxId);
+    email = getCookie("email");
     password = getCookie("password");
     userId = getCookie("userId");
     var verify = await fetch("/api/authCookies", {
@@ -48,20 +48,19 @@ async function authCookies(inputBoxId){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            username: username,
+            email: email,
             password: password,
             userId: userId
         })
     });
     var response = await verify.json();
-    console.log(response);
+    console.log("submitflag.js got this from authCookies: " + response);
     if(response){
         // the user authentication was successful
         // get the flag submission from the input box
-        console.log("user auth with cookies was successful");
+        console.log("submitFlag.js: user auth with cookies was successful");
         var submission = document.getElementById(inputBoxId).getElementsByClassName('form-control')[0].value;
-        console.log("here is the submitted flag:");
-        console.log(submission);
+        console.log("here is the submitted flag:"+ submission);
         // console.log(document.getElementById(inputBoxId).getElementsByClassName('form-control'));
         
         // checkFlag also updates the spreadsheet with the new flag submission

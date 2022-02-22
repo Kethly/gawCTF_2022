@@ -1,6 +1,6 @@
 /* client should pass the cookies
     cookies:
-        username (string)
+        email (string)
         password (unhashed string)
         userId (integer, row number of the user data on the sheet)
     this file will check if the cookies contain valid user data
@@ -44,21 +44,21 @@ jwtClient.authorize(function(err, tokens){
     }
 });
 
-function compareCookies(username, password, userId){
-    /* Check the user credentials (username and password)
+function compareCookies(email, password, userId){
+    /* Check the user credentials (email and password)
        if the user credentials are not valid, display an error message
        return a promise with response value true if the credentials are valid
        false if the credentials are invalid
        promise will reject with an error if the API returns an error
 
-       uses the cookies username, password, and userId
+       uses the cookies email, password, and userId
        userId should be the row of the user's data in the sheet, starting with row 2
     */
 
     return new Promise(function(resolve, reject){
         // if the cookies have no value, then user auth fails
-        if(!username || !password || !userId){
-            console.log("User authentication failed! Cookies are invalid");
+        if(!email || !password || !userId){
+            console.log("compareCookies: User authentication failed! Cookies are invalid");
             resolve(false);
             return;
         }
@@ -67,40 +67,36 @@ function compareCookies(username, password, userId){
         let spreadsheetId = '15VYcKvXIXfGaLPMzBojLMOnt-ajWn505lNzWwTmNoD0';
         let sheets = google.sheets('v4');
         let sheetRange = 'Users!A'+userId+':D'+userId;
-        console.log(sheetRange);
+        console.log("compareCookies is looking in this sheetrange: " + sheetRange);
         sheets.spreadsheets.values.get({
             auth: jwtClient,
             spreadsheetId: spreadsheetId,
             range: sheetRange,
         }, function(err, response){
             if(err){
-                console.log('The API returned an error during cookie authentication: ' + err);
+                console.log('compareCookies: The API returned an error during cookie authentication: ' + err);
                 reject(err);
                 return;
             }
             else{
-                // usernames are in the first column
+                // emails are in the first column
                 // password hashes are in the second column
-                console.log(response.data.values);
-                console.log(password.hashCode());
-                if((response.data.values[0][0] === username) 
+                console.log("compareCookies got this response data: " + response.data.values);
+                console.log("compareCookies: password cookie hash is: " + password.hashCode());
+                if((response.data.values[0][0] === email) 
                     && (response.data.values[0][1] === password.hashCode().toString())){
-                        console.log('User cookie authentication successful!');
+                        console.log('compareCookies: User cookie authentication successful!');
                         resolve(true);
                         return;
                 }
-                console.log("User cookie authentication failed! oh noes");
-                console.log(response.data.values[0][1]);
-                console.log(password.hashCode());
-                if(!(response.data.values[0][0] === username)){
-                    console.log("Username does not match");
+                console.log("compareCookies: User cookie authentication failed! oh noes");
+                console.log("compareCookies: this is the correct password hash: " + response.data.values[0][1]);
+                if(!(response.data.values[0][0] === email)){
+                    console.log("compareCookies: Email does not match");
                 }
-                // console.log('the program gets to line 126');
                 if(!(response.data.values[0][1] === password.hashCode().toString())){
-                    console.log("Password does not match");
-                    console.log(password.hashCode() + response.data.values[0][1]);
+                    console.log("compareCookies: Password does not match");
                 }
-                // console.log('the program gets here to line 131');
                 resolve(false);
                 return;
             }
@@ -110,13 +106,14 @@ function compareCookies(username, password, userId){
 
 exports.handler = async(event, context) => {
     let params = JSON.parse(event.body);
-    let username = params.username;
+    let email = params.email;
     let password = params.password;
     let userId = params.userId;
-    console.log(username);
-    console.log(password);
-    console.log(userId);
-    let result = await compareCookies(username, password, userId);
-    console.log(result);
+    console.log("authCookies.js receieved the following parameters:");
+    console.log("email: " + email);
+    console.log("password: " + password);
+    console.log("userId: " + userId);
+    let result = await compareCookies(email, password, userId);
+    console.log("authCookies.js determined this result: " + result);
     return {statusCode: 200, body: JSON.stringify(result)};
 }

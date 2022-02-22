@@ -63,25 +63,25 @@ function checkFlag(inputBoxId, submission){
         }, function(err, response){
             if(err){
                 // handle the error
-                console.log("The API returned an error when checking the flag: " + err);
+                console.log("checkFlag: The API returned an error when checking the flag: " + err);
                 reject(err);
                 return;
             }
             else{
-                console.log(response.data.values);
+                console.log("checkFlag got this data: " + response.data.values);
                 // all hashes are in the first row
                 // calculate the column number
                 var colnum = parseInt(inputBoxId.replace(/\D/g, ""), 10);
-                console.log(response.data.values[0][colnum]);
+                console.log("checkFlag is checking against this flag hash: " + response.data.values[0][colnum]);
                 
                 // compare the hashes to determine if the flag was correct
                 if(submission.hashCode().toString() === response.data.values[0][colnum]){
-                    console.log("The flag is correct!");
+                    console.log("checkFlag: The flag is correct!");
                     resolve(true);
                     return;
                 }
                 else{
-                    console.log("The flag is incorrect!");
+                    console.log("checkFlag: The flag is incorrect!");
                     resolve(false);
                     return;
                 }
@@ -132,7 +132,7 @@ function writeSubmission(inputBoxId, userId, submission){
     let values = [[submission.hashCode()]];
     const sheetResource = {values};
 
-    console.log('submits!'+getColCode(questionId)+userId+':'+getColCode(questionId)+userId);
+    console.log("writeSubmission: This is the sheetRange: " + 'submits!'+getColCode(questionId)+userId+':'+getColCode(questionId)+userId);
 
     sheets.spreadsheets.values.update({
         auth: jwtClient,
@@ -142,10 +142,10 @@ function writeSubmission(inputBoxId, userId, submission){
         resource: sheetResource
     }, function(err, response){
         if(err){
-            console.log("The API returned an error when updating submits: " + err);
+            console.log("writeSubmission: The API returned an error when updating submits: " + err);
         }
         else{
-            console.log("The flag submission updated to the sheet successfully");
+            console.log("writeSubmission: The flag submission updated to the sheet successfully");
             console.log(submission.hashCode());
         }
     });
@@ -160,12 +160,13 @@ exports.handler = async(event, context) => {
     let submission = params.submission;
     let userId = params.userId;
     let inputBoxId = params.inputBoxId;
-    console.log(submission);
-    console.log(userId);
-    console.log(inputBoxId);
+    console.log("checkFlag.js receieved these parameters: ");
+    console.log("submission:" + submission);
+    console.log("userId:" + userId);
+    console.log("inputBoxId:" + inputBoxId);
     
     let result = await checkFlag(inputBoxId, submission);
-    console.log(result);
+    console.log("checkFlag.js result: " + result);
     writeSubmission(inputBoxId, userId, submission);
     return {statusCode: 200, body: JSON.stringify(result)};
 }

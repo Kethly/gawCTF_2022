@@ -34,14 +34,13 @@ jwtClient.authorize(function (err, tokens) {
  }
 });
 
-function authUser(username, password){
+function authUser(email, password){
   // returns -1 if the user authentication failed
   // returns the row of the user's data in the spreadsheet if user auth was a success
   return new Promise(function(resolve, reject){
     let spreadsheetId = '15VYcKvXIXfGaLPMzBojLMOnt-ajWn505lNzWwTmNoD0';
     let sheets = google.sheets('v4');
 
-    //console.log(response.data.values)
     let sheetRange = 'Users!A2:D';
 
     //Grab the current users for login
@@ -52,7 +51,7 @@ function authUser(username, password){
     range: sheetRange
     }, function (err, response) {
       if (err) {
-          console.log('The API returned an error: ' + err);
+          console.log('AuthUser: The API returned an error: ' + err);
           reject(err);
           return;
       } 
@@ -62,21 +61,23 @@ function authUser(username, password){
             current_users.push(response.data.values[row][0].toString().toLowerCase());
             }  
         }
-        //console.log(current_users);
-        let index = current_users.indexOf(username.toString().toLowerCase());
+
+        let index = current_users.indexOf(email);
+        console.log("authUser: found user at row: " + (index+2) + "when comparing to: " + email.toString().toLowerCase());
         if(!(index > 0)){
-            console.log("you don't exist....");
+            console.log("AuthUser: you don't exist....");
             resolve(-1);
         } 
         else {
+          console.log("authUser: comparing to hash: " + response.data.values[index][1]);
           if(!(password.hashCode() == response.data.values[index][1])){
-              console.log("wrong password, please log out, and log in again");
+              console.log("AuthUser: wrong password, please log out, and log in again");
               resolve(-1);
           } 
           else {
-            //do login code here
-              console.log("successful login!");
-              console.log("username:", response.data.values[index][0]);
+
+              console.log("AuthUser: successful login!");
+              console.log("email:", response.data.values[index][0]);
               console.log("password:", password);
               resolve(index+2);
           }
@@ -88,13 +89,14 @@ function authUser(username, password){
 
 exports.handler = async (event, context) => {
   let params = JSON.parse(event.body);
-  let username = params.username;
+  let email = params.email;
   let password = params.password;
+  console.log("Auth.js received the following parameters:");
+  console.log("email: " + email);
+  console.log("password: " + password);
   console.log("Password hash is: " + password.hashCode());
-  console.log(username);
-  console.log(password);
-  let userId = await authUser(username, password);
-  console.log(userId);
+  let userId = await authUser(email, password);
+  console.log("Auth.js computed a userId: " + userId);
 
   // userId is -1 if the user authentication was not successful
   return { statusCode: 200, body: JSON.stringify(userId)};
