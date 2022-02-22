@@ -91,7 +91,6 @@ exports.handler = async (event, context) => {
   let params = JSON.parse(event.body);
   let email = params.email;
   let password = params.password;
-<<<<<<< HEAD
   console.log("Auth.js received the following parameters:");
   console.log("email: " + email);
   console.log("password: " + password);
@@ -101,7 +100,4 @@ exports.handler = async (event, context) => {
 
   // userId is -1 if the user authentication was not successful
   return { statusCode: 200, body: JSON.stringify(userId)};
-=======
-    return { statusCode: 200, body: JSON.stringify(""), };
->>>>>>> newuserstaterecovered
 };

@@ -58,7 +58,6 @@ async function auth(){
         })
       });
     var response = await login.json();
-    await sleep(1000);
     console.log("login.js got this from auth: " + response);
     if(response === "" || response < 0){
         // console.log("going to show the failure toast");
