@@ -6,6 +6,7 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
 
+//var email = "keth"
 var loginbuttonwidth;
 window.onload = (event) => {
   
@@ -57,9 +58,6 @@ async function auth(){
         })
       });
     var response = await login.json();
-
-    await sleep(1000);
-
     console.log("login.js got this from auth: " + response);
     if(response === "" || response < 0){
         // console.log("going to show the failure toast");
