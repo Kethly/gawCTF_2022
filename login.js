@@ -6,7 +6,6 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
 
-var username = "keth"
 var loginbuttonwidth;
 window.onload = (event) => {
   
@@ -58,17 +57,21 @@ async function auth(){
         })
       });
     var response = await login.json();
-    console.log(response);
+
     await sleep(1000);
-    if(response === ""){
+
+    console.log("login.js got this from auth: " + response);
+    if(response === "" || response < 0){
+        // console.log("going to show the failure toast");
         $('#alert-fail').toast('show');
         resetLogin();
         
     } else {
         
         $('#alert-success').toast('show');
-        setCookie("username", username, 31);
         setCookie("email", email, 31);
         setCookie("password", password, 31);
+        setCookie("userId", response, 31);
+        window.location.replace("/index.html");
     }
 }

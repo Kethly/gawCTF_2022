@@ -16,6 +16,7 @@
         <!-- Calling jquery first -->
         <script language="JavaScript" type="text/javascript" src="jquery-3.6.0.js"></script>
         <script language="JavaScript" type="text/javascript" src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+        
         <script>
           
           $(function(){
@@ -68,7 +69,9 @@
             
           </center>
           <p id="challengetext">placeholder text</p>
-          <input class="form-control" placeholder="gawCTF{FLAG}">
+          <form id = "inputBox" onsubmit="authCookies(this.id); return false;">
+            <input class="form-control" placeholder="gawCTF{FLAG}">
+          </form>
         </div>
         <center><p class="card-footer">
           <button id="hint-btn1" class="btn hint-btn" type="button" data-toggle="collapse" data-target="#hintcollapse1" aria-expanded="false" aria-controls="hintcollapse1">
@@ -105,5 +108,5 @@
 <footer>
   <script language="JavaScript" type="text/javascript" src="carouselslides.js"></script>
   <script language="JavaScript" type="text/javascript" src="OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
-  
+  <script language="JavaScript" type="text/javascript" src="submitFlag.js"></script>
 </footer>
