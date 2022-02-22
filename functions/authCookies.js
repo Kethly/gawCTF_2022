@@ -83,7 +83,7 @@ function compareCookies(email, password, userId){
                 // password hashes are in the second column
                 console.log("compareCookies got this response data: " + response.data.values);
                 console.log("compareCookies: password cookie hash is: " + password.hashCode());
-                if((response.data.values[0][0] === email) 
+                if((response.data.values[0][0].toLowerCase() === email.toLowerCase()) 
                     && (response.data.values[0][1] === password.hashCode().toString())){
                         console.log('compareCookies: User cookie authentication successful!');
                         resolve(true);
@@ -91,7 +91,7 @@ function compareCookies(email, password, userId){
                 }
                 console.log("compareCookies: User cookie authentication failed! oh noes");
                 console.log("compareCookies: this is the correct password hash: " + response.data.values[0][1]);
-                if(!(response.data.values[0][0] === email)){
+                if(!(response.data.values[0][0].toString().toLowerCase() === email.toString().toLowerCase())){
                     console.log("compareCookies: Email does not match");
                 }
                 if(!(response.data.values[0][1] === password.hashCode().toString())){
