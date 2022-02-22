@@ -13,5 +13,5 @@ exports.handler = async (event, context) => {
   let params = JSON.parse(event.body)
   let email = params.email;
   let password = params.password;
-    return { statusCode: 200, body: JSON.stringify("s"), };
+    return { statusCode: 200, body: JSON.stringify(""), };
 };

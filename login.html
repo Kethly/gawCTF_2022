@@ -24,16 +24,18 @@
         </script> 
     </head>
         
-        <body>
+        <body class="gradientbody">
+            <div class="holder"><div class="test2"><div class="spin3" ><div class="spin2" ><p id="spin2">🍀</p></div></div><p>Loading . . .</p></div></div>
+
         <div id="nav-placeholder"></div>
-        <section class="gradient-custom" style="height:70%;">
-            <div class="container py-5 h-100">
+
+            <div class="container">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                <div class="login-shadow card bg-dark text-white" style="border-radius: 1rem; ">
+                <div class="login-shadow card bg-dark text-white  mt-4" style="border-radius: 1rem;">
                     <div class="card-body p-5 text-center">
 
-                    <div class="mb-md-0 mt-md-2 pb-0">
+                    <div class="mb-md-0 pb-0">
                         <form onsubmit="auth(); return false;">
                         <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                         <p class="text-white-50 mb-2">Please enter your login and password!</p>
@@ -50,10 +52,11 @@
                         
                         </div>
         
-                        <p class="small mb-4 pb-lg-2"><a class="text-white" href="#!">Forgot password?</a></p>
-        
-                        <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
-                        <p class="mt-5">Don't have an account? <a href="#!" class="text-white-50 fw-bold">Sign Up</a></p>
+                        <p class="small mb-4 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+                        
+                        
+                        <button class="btn btn-outline-light btn-lg px-5" id="loginbtn" type="submit"><div class="test"hidden id="loginspin" role="status" aria-hidden="true"><div class="spin" ><p id="poopspin">💩</p></div></div><span id="logintext">Login</span></button>
+                        <p class="mt-4">Don't have an account? <a href="#!" class="text-white-50 fw-bold">Sign Up</a></p>
                     </div>
                 </form>
                     </div>
@@ -61,26 +64,29 @@
                 </div>
             </div>
             </div>
-        </section>
-        
     </body>
+
+        <div role="alert" id="alert-fail" aria-live="assertive" aria-atomic="true" class="toast bg-dark" style="position: absolute; top: 20%; right: 5%;">
+
     
-    <div role="alert" id="alert-fail" aria-live="assertive" aria-atomic="true" class="toast bg-danger" style="position: absolute; top: 20%; right: 5%;">
-        <div class="toast-header">
-          <strong class="pl-2 mr-auto">gawBot</strong>
-          <small class="mr-3">warning!</small>
-          <button type="button" class="mb-1 close" data-bs-dismiss="toast" aria-label="Close">
+
+        <div class="toast-header text-danger">
+            <h2 class="rounded mr-2">👻</h2>
+            <strong class="mr-auto">gawBot</strong>
+            <small class="ml-2">warning!</small>
+            <button type="button" class="mb-1 close" data-bs-dismiss="toast" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="pl-3 mb-2 toast-body">
+        <div class="pl-3 mb-2 toast-body text-white">
           login error, please try again
         </div>
       </div>
       <div role="alert" id="alert-success" aria-live="assertive" aria-atomic="true" class="toast bg-white" style="position: absolute; top: 20%; right: 5%;">
         <div class="toast-header ">
-          <strong class="pl-2 mr-auto">gawBot</strong>
-          <small class="mr-3">success!</small>
+            <h2 class="rounded mr-2">🎉</h2>
+          <strong class="mr-auto">gawBot</strong>
+          <small class="ml-2">success!</small>
           <button type="button" class="mb-1 close" data-bs-dismiss="toast" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -89,4 +95,5 @@
           you are now logged in!
         </div>
       </div>
+
   </html>
