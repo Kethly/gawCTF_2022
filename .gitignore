@@ -2,3 +2,8 @@
 #ignore node modules
 node_modules
 package-lock.json
+# Local Netlify folder
+.netlify
+.netlify/functions/manifest.json
+client_secret.json
+functions/client_secret.json
