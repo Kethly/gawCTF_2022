@@ -14,6 +14,7 @@ async function getScoreboard(){
     var usercell = newRow.insertCell(0);
     var scorecell = newRow.insertCell(1);
     usercell.innerHTML = responses[i]["user"];
+    usercell.setAttribute("id", responses[i]["user"]);
     scorecell.innerHTML = responses[i]["score"];
 
     // const scoreitem = document.createElement("p");
@@ -22,7 +23,7 @@ async function getScoreboard(){
     // scoreitem.id = responses[i]["user"];
     // document.getElementById("scoreboard").appendChild(scoreitem);
   }
-  
+  location.href = "#test";
 }
 
 getScoreboard();

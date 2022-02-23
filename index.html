@@ -38,7 +38,7 @@
               mouseDrag: false,
               navText:["<div class='btn btn-danger'>prev</div>","<div class='btn btn-danger'>next</div>"],
               dots: true,
-              autoWidth:true,
+              autoWidth:false,
           });
         });  
         </script> 
@@ -62,15 +62,16 @@
     </div>
 
     <template id="slide-template"> 
-      <div id="slide" class="card item" style="width: 200px;">
+      <div id="slide" class="card item">
         <div class="card-body">
           <center>
             <h1 class="card-title" id="challengetitle">Intro to Stego!</h1>
             
           </center>
           <p id="challengetext">placeholder text</p>
-          <form id = "inputBox" onsubmit="authCookies(this.id); return false;">
+          <form id="inputBox" class="form-inline flagform" onsubmit="authCookies(this.id); return false;">
             <input class="form-control" placeholder="gawCTF{FLAG}">
+            <button class="btn btn-outline-success" type="submit">SUBMIT!</button>
           </form>
         </div>
         <center><p class="card-footer">

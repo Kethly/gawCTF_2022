@@ -11,12 +11,13 @@ var loginbuttonwidth;
 window.onload = (event) => {
   
   loginbuttonwidth = document.getElementById("loginbtn").clientWidth;
-  console.log("hi")
+  document.getElementById("loginbtn").style.width = ((loginbuttonwidth).toString() + "px").toString();
+  console.log("hi");
+  
 };
 
 function setLoad(){
     document.getElementById("loginbtn").disabled = true;
-    
     document.getElementById("loginbtn").style.width = ((loginbuttonwidth * 0.7).toString() + "px").toString();
     document.getElementById("logintext").innerText ="";
     
@@ -59,6 +60,7 @@ async function auth(){
       });
     var response = await login.json();
     console.log("login.js got this from auth: " + response);
+    await sleep(500);
     if(response === "" || response < 0){
         // console.log("going to show the failure toast");
         $('#alert-fail').toast('show');
@@ -70,6 +72,7 @@ async function auth(){
         setCookie("email", email, 31);
         setCookie("password", password, 31);
         setCookie("userId", response, 31);
+        await sleep(500);
         window.location.replace("/index.html");
     }
 }
