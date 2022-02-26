@@ -64,6 +64,7 @@ async function authCookies(inputBoxId){
         // console.log(document.getElementById(inputBoxId).getElementsByClassName('form-control'));
         
         // checkFlag also updates the spreadsheet with the new flag submission
+        //note that this may be better migrated into a function instead
         var flagCheck = await fetch("/api/checkFlag", {
             method: "post",
             headers: {

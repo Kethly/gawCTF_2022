@@ -96,4 +96,9 @@ function authUser(response, email, password){
         }
     });
 }
-connectToSheets('Users!A2:D', authUser, "kethlyfast@gmail.com", "keth");
+
+//using cookies, cookies 
+async function returnValue(){
+console.log("final result", await connectToSheets('Users!A2:D', authUser, "kethlyfast@gmail.com", "keth"));
+}
+returnValue();

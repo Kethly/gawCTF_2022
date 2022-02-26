@@ -99,5 +99,8 @@ exports.handler = async (event, context) => {
   console.log("Auth.js computed a userId: " + userId);
 
   // userId is -1 if the user authentication was not successful
+  //uncomment the next two lines if want to test out timeout
+  // await new Promise((r) => setTimeout(r, 20_000))
+  // return callback(null, {})
   return { statusCode: 200, body: JSON.stringify(userId)};
 };

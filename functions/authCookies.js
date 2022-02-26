@@ -57,7 +57,7 @@ function compareCookies(email, password, userId){
 
     return new Promise(function(resolve, reject){
         // if the cookies have no value, then user auth fails
-        if(!email || !password || !userId){
+        if(!email || !password || !userId){ //note, this may be better to process clientwise instead of in authCookies in order to prevent people from spamming empty cookies
             console.log("compareCookies: User authentication failed! Cookies are invalid");
             resolve(false);
             return;
