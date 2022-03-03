@@ -10,7 +10,7 @@
 
 var {google} = require("googleapis");
 const {JWT} = require("google-auth-library");
-let secretKey = require("./client_secret.json");
+let secretKey = {"client_email": process.env.client_email.replace(/\\n/gm, "\n"), "private_key": process.env.private_key.replace(/\\n/gm, "\n")};
 const { testing } = require("googleapis/build/src/apis/testing");
 const { sheets } = require("googleapis/build/src/apis/sheets");
 
