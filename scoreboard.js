@@ -2,6 +2,7 @@ async function getScoreboard(){
   var publicdata = await fetch("https://opensheet.elk.sh/1XBd9iby84O-jNv0Wuvzewtm9ZKyEn87NpFmSIy-8HVA/scoreboard");
   var responses = await publicdata.json();
   var display = "";
+
   for(var i = 0; i < Object.keys(responses).length; i++){
     display += JSON.stringify(responses[i]) + "\n";
     //console.log(JSON.stringify(responses[i]) + "\n");
@@ -13,6 +14,7 @@ async function getScoreboard(){
     var usercell = newRow.insertCell(0);
     var scorecell = newRow.insertCell(1);
     usercell.innerHTML = responses[i]["user"];
+    usercell.setAttribute("id", responses[i]["user"]);
     scorecell.innerHTML = responses[i]["score"];
 
     // const scoreitem = document.createElement("p");
@@ -21,6 +23,7 @@ async function getScoreboard(){
     // scoreitem.id = responses[i]["user"];
     // document.getElementById("scoreboard").appendChild(scoreitem);
   }
-  
+  location.href = "#test";
 }
+
 getScoreboard();

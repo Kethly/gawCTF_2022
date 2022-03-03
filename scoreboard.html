@@ -13,19 +13,21 @@
         <script language="JavaScript" type="text/javascript" src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
         
         <script src="scoreboard.js"></script>
+        <script language="JavaScript" type="text/javascript" src="startup.js"></script>
     </head>
+
 <body>
     <nav class="navbar fixed-top bg-success navbar-expand-lg navbar-dark rounded-bottom">
         <!--Replace href with home later-->
-        <a class="navbar-brand font-weight-bold" href="#"><--[gawCTF]--></a>
+        <a class="navbar-brand" href="#"> <img src="gawLogoInverted.png" width="100" height="100" alt="" style="margin-top:-9%;margin-bottom:-13%;margin-left:-10%; margin-right:-10%;"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-item nav-link" href="index.html">Compete</a>
-              <div class="vr"></div>
-              <a class="nav-item nav-link " href="#">Scoreboard</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navbar-nav mr-auto">
+              <a class="nav-item nav-link" href="index">Compete</a>
+    
+              <a class="nav-item nav-link " href="scoreboard">Scoreboard</a>
               
             </div>
            
@@ -34,17 +36,18 @@
             <div class="wrap border border-dark bg-dark rounded">
             <h1 class="text-danger">
                 <div class='type'></div>
-                gawCTF{_Scoreboard_}
+                gawCTF{_Sc0r35_}
             
             </h1>
         </div>
         </div>
         <span class="navbar-nav">
             <a class="nav-item nav-link" href="#">Register</a>
-            <a class="nav-item nav-link" href="#">Login</a>
+            <a class="nav-item nav-link" id="logswitch" href="login">Login</a>
             
         </span>
     </nav>
+    
 
     <div class="d-flex justify-content-evenly">
         <table id="scoreboard" class="table">
@@ -59,5 +62,7 @@
             </tbody>
         </table>
     </div>
+    <div class="holder"><div class="test2"><div class="spin3" ><div class="spin2" ><p id="spin2">🍀</p></div></div><p>Loading . . .</p></div></div>
+
 </body>
 

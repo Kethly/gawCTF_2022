@@ -1,5 +1,22 @@
-# Local Netlify folder
-.netlify
+
 #ignore node modules
 node_modules
 package-lock.json
+<<<<<<< HEAD
+<<<<<<< HEAD
+# Local Netlify folder
+.netlify
+.netlify/functions/manifest.json
+=======
+client_secret.json
+functions/client_secret.json
+>>>>>>> 238a2eeb4399b0d48d64bf068cfc5c3ff9a5fd6c
+=======
+client_secret.json
+functions/client_secret.json
+=======
+# Local Netlify folder
+.netlify
+.netlify/functions/manifest.json
+>>>>>>> newuserstaterecovered
+>>>>>>> firefoxstuff
