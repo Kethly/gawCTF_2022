@@ -95,7 +95,7 @@ return new Promise(function(resolve, reject){
                     } else {
                         //should respond that there was some sort of success and we'll use this for the toast
                         console.log("Users: " + newuser + " was added successfully");
-                        resolve(current_users.length+1);
+                        resolve(current_users.length+2);
                     }
                 });
             } else {
