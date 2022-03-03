@@ -23,7 +23,8 @@ async function getScoreboard(){
     // scoreitem.id = responses[i]["user"];
     // document.getElementById("scoreboard").appendChild(scoreitem);
   }
-  location.href = "#test";
+  //note to self: add this later for users that are logged in
+  //location.href = "#test";
 }
 
 getScoreboard();
