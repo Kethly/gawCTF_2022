@@ -70,10 +70,10 @@ return new Promise(function(resolve, reject){
                 
                 newpasswordhashed = newpassword.hashCode();
                 let values = [
-                    [newuser,
+                    [newemail,
                     newpasswordhashed,
                     0,
-                    newemail
+                    newuser
                     ]
                 ];
                 
