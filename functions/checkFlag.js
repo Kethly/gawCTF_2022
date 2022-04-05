@@ -124,30 +124,32 @@ function writeSubmission(inputBoxId, userId, submission){
         This function will update the user-submitted flag
         to the submits sheet on the private database 
     */
-    var questionId = parseInt(inputBoxId.replace(/\D/g, ""), 10);
+    return new Promise(function(resolve, reject){
+        var questionId = parseInt(inputBoxId.replace(/\D/g, ""), 10);
 
-    let spreadsheetId = '15VYcKvXIXfGaLPMzBojLMOnt-ajWn505lNzWwTmNoD0';
-    let sheetRange = 'submits!'+getColCode(questionId)+userId+':'+getColCode(questionId)+userId;
-    let sheets = google.sheets('v4');
-    let values = [[submission.hashCode()]];
-    const sheetResource = {values};
+        let spreadsheetId = '15VYcKvXIXfGaLPMzBojLMOnt-ajWn505lNzWwTmNoD0';
+        let sheetRange = 'submits!'+getColCode(questionId)+userId+':'+getColCode(questionId)+userId;
+        let sheets = google.sheets('v4');
+        let values = [[submission.hashCode()]];
+        const sheetResource = {values};
 
-    console.log("writeSubmission: This is the sheetRange: " + 'submits!'+getColCode(questionId)+userId+':'+getColCode(questionId)+userId);
+        console.log("writeSubmission: This is the sheetRange: " + 'submits!'+getColCode(questionId)+userId+':'+getColCode(questionId)+userId);
 
-    sheets.spreadsheets.values.update({
-        auth: jwtClient,
-        valueInputOption: "RAW",
-        spreadsheetId: spreadsheetId,
-        range: sheetRange,
-        resource: sheetResource
-    }, function(err, response){
-        if(err){
-            console.log("writeSubmission: The API returned an error when updating submits: " + err);
-        }
-        else{
-            console.log("writeSubmission: The flag submission updated to the sheet successfully");
-            console.log(submission.hashCode());
-        }
+        sheets.spreadsheets.values.update({
+            auth: jwtClient,
+            valueInputOption: "RAW",
+            spreadsheetId: spreadsheetId,
+            range: sheetRange,
+            resource: sheetResource
+        }, function(err, response){
+            if(err){
+                console.log("writeSubmission: The API returned an error when updating submits: " + err);
+            }
+            else{
+                console.log("writeSubmission: The flag submission updated to the sheet successfully");
+                console.log(submission.hashCode());
+            }
+        });
     });
 }
 

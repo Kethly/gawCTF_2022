@@ -57,7 +57,7 @@
         
     }
 }
-@media screen and (max-width: 600px) {
+/*@media screen and (max-width: 600px) {
     
     .navbar > .nav-item {
         font-size:0.4em;
@@ -98,6 +98,7 @@
         
     }
   }
+*/
 .type{
     position:absolute;
     display:block;
@@ -118,10 +119,7 @@
     to { border-color: white; }
   }
 
-  body { padding-top: 6.5%; }
-  @media screen and (max-width: 768px) {
-      body { padding-top: 0px; }
-  }
+  body { margin-top: 100px; height: calc(100%-100px)  }
 
 .owl-carousel {
     width: 100%;
