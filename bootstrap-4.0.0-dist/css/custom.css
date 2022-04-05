@@ -123,11 +123,16 @@
 
 .owl-carousel {
     width: 100%;
+    
 }
-
+#ctf-carousel{
+    
+}
 #ctf-carousel .card{
     padding: 10px;
-
+    background:transparent;
+    color:white;
+    border-color:white;
 }
 
 #ctf-carousel .item{
@@ -300,3 +305,4 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
