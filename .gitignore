@@ -7,3 +7,5 @@ package-lock.json
 .netlify/functions/manifest.json
 client_secret.json
 functions/client_secret.json
+# testing-related files
+findhash.js

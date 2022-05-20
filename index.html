@@ -6,6 +6,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!--<script src="db.js"></script>-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
         <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css"/>
         <link rel="stylesheet" type="text/css" href="bootstrap-4.0.0-dist/css/custom.css" />
 
@@ -15,6 +17,8 @@
 
         <!-- Calling jquery first -->
         <script language="JavaScript" type="text/javascript" src="jquery-3.6.0.js"></script>
+        <script language="JavaScript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
         <script language="JavaScript" type="text/javascript" src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
         <script language="JavaScript" type="text/javascript" src="startup.js"></script>
         
@@ -49,63 +53,103 @@
 <body>
 
   <div id="nav-placeholder"></div>
-    <div class="container bg-white">
-        <div class ="bg-gradient"> 
-            <p class="text-white">
-                hello world!
-            </p>
-        </div>
+  <div class="container bg-white">
+      <div class ="bg-gradient"> 
+          <p class="text-white">
+              hello world!
+          </p>
+      </div>
+  </div>
+  <div class="container bg-dark pt-5">
+    <div class="owl-carousel owl-theme" id="ctf-carousel">
+      
     </div>
-    <div class="container bg-dark pt-5">
-      <div class="owl-carousel owl-theme" id="ctf-carousel">
-        
+  </div>
+
+  <template id="slide-template"> 
+    <div id="slide" class="card item">
+      <div class="card-body">
+        <center>
+          <h1 class="card-title" id="challengetitle">Intro to Stego!</h1>
+          
+        </center>
+        <p id="challengetext">placeholder text</p>
+        <form id="inputBox" class="form-inline flagform" onsubmit="authCookies(this.id); return false;">
+          <input class="form-control" placeholder="gawCTF{FLAG}">
+          <button class="btn btn-outline-success" type="submit">SUBMIT!</button>
+        </form>
+      </div>
+      <center><p class="card-footer">
+        <button id="hint-btn1" class="btn hint-btn" type="button" data-toggle="collapse" data-target="#hintcollapse1" aria-expanded="false" aria-controls="hintcollapse1">
+          Hint 1
+        </button>
+        <button id="hint-btn2" class="btn hint-btn" type="button" data-toggle="collapse" data-target="#hint2" aria-expanded="false" aria-controls="hint2">
+          Hint 2
+        </button>
+        <button id="hint-btn3" class="btn hint-btn" type="button" data-toggle="collapse" data-target="#hint3" aria-expanded="false" aria-controls="hint3">
+          Hint 3
+        </button>
+      </p></center>
+      <div class="collapse" id="hintcollapse1">
+          <div class="card card-body" id="hint1">
+              Here's some placeholder text for a hint1.
+            </div>
+      </div>
+      <div class="collapse" id="hintcollapse2">
+          <div class="card card-body" id="hint2">
+              Here's some placeholder text for a hint1.
+            </div>
+      </div>
+      <div class="collapse" id="hintcollapse3">
+          <div class="card card-body" id="hint3">
+              Here's some placeholder text for a hint1.
+            </div>
       </div>
     </div>
-
-    <template id="slide-template"> 
-      <div id="slide" class="card item">
-        <div class="card-body">
-          <center>
-            <h1 class="card-title" id="challengetitle">Intro to Stego!</h1>
-            
-          </center>
-          <p id="challengetext">placeholder text</p>
-          <form id="inputBox" class="form-inline flagform" onsubmit="authCookies(this.id); return false;">
-            <input class="form-control" placeholder="gawCTF{FLAG}">
-            <button class="btn btn-outline-success" type="submit">SUBMIT!</button>
-          </form>
-        </div>
-        <center><p class="card-footer">
-          <button id="hint-btn1" class="btn hint-btn" type="button" data-toggle="collapse" data-target="#hintcollapse1" aria-expanded="false" aria-controls="hintcollapse1">
-            Hint 1
-          </button>
-          <button id="hint-btn2" class="btn hint-btn" type="button" data-toggle="collapse" data-target="#hint2" aria-expanded="false" aria-controls="hint2">
-            Hint 2
-          </button>
-          <button id="hint-btn3" class="btn hint-btn" type="button" data-toggle="collapse" data-target="#hint3" aria-expanded="false" aria-controls="hint3">
-            Hint 3
-          </button>
-        </p></center>
-        <div class="collapse" id="hintcollapse1">
-            <div class="card card-body" id="hint1">
-                Here's some placeholder text for a hint1.
-              </div>
-        </div>
-        <div class="collapse" id="hintcollapse2">
-            <div class="card card-body" id="hint2">
-                Here's some placeholder text for a hint1.
-              </div>
-        </div>
-        <div class="collapse" id="hintcollapse3">
-            <div class="card card-body" id="hint3">
-                Here's some placeholder text for a hint1.
-              </div>
-        </div>
-    
-      </div>
-    </template>
-
+  </template>
 </body>
+
+<div role="alert" id="alert-authfailonsubmit" aria-live="assertive" aria-atomic="true" class="toast bg-dark" style="position: absolute; top: 20%; right: 5%;">
+  <div class="toast-header text-danger">
+      <h2 class="rounded mr-2">👻</h2>
+      <strong class="mr-auto">gawBot</strong>
+      <small class="ml-2">warning!</small>
+      <button type="button" class="mb-1 close" data-bs-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="pl-3 mb-2 toast-body text-white">
+    login error, please log in again
+  </div>
+</div>
+
+<div role="alert" id="alert-failonsubmit" aria-live="assertive" aria-atomic="true" class="toast bg-dark" style="position: absolute; top: 20%; right: 5%;">
+  <div class="toast-header text-danger">
+      <h2 class="rounded mr-2">👻</h2>
+      <strong class="mr-auto">gawBot</strong>
+      <small class="ml-2">warning!</small>
+      <button type="button" class="mb-1 close" data-bs-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="pl-3 mb-2 toast-body text-white">
+    login error, please try again
+  </div>
+</div>
+
+<div role="alert" id="alert-successonsubmit" aria-live="assertive" aria-atomic="true" class="toast bg-white" style="position: absolute; top: 20%; right: 5%;">
+  <div class="toast-header ">
+      <h2 class="rounded mr-2">🎉</h2>
+    <strong class="mr-auto">gawBot</strong>
+    <small class="ml-2">success!</small>
+    <button type="button" class="mb-1 close" data-bs-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="pl-3 mb-2 toast-body">
+    the flag was correct!
+  </div>
+</div>
 
 <footer>
   <script language="JavaScript" type="text/javascript" src="carouselslides.js"></script>
@@ -113,3 +157,5 @@
   <script language="JavaScript" type="text/javascript" src="submitFlag.js"></script>
 
 </footer>
+
+</html>

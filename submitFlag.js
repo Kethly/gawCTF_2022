@@ -81,13 +81,16 @@ async function authCookies(inputBoxId){
         if(flagResponse){
             // flag was correct
             console.log("The flag was correct, congrats!");
+            $('#alert-successonsubmit').toast('show');
         }
         else{
             // flag was incorrect
             console.log("The flag was incorrect!");
+            $('#alert-failonsubmit').toast('show');
         }
     }
     else{
         // the user authentication was unsuccessful
+        $('#alert-authfailonsubmit').toast('show');
     }
 }
