@@ -31,8 +31,12 @@ async function makeCarouselSlides(){
       
       // set the challenge text and set the id
       var challengehtml = newSlide.getElementById("challengetext");
-      challengehtml.textContent = responses[i]["challengetext"].replace( new RegExp("\\\\n", 'g'), "\r\n");
       challengehtml.id = "challengetext"+i;
+
+      challengehtml.textContent = "";
+      var newlineformatted = responses[i]["challengetext"].replace( new RegExp("\\\\n", 'g'), "\r\n");
+      $(challengehtml).append(newlineformatted);
+
       challengehtml.classList.add("challtext");
       
       // set the id of the input box, will be used to check the flags
