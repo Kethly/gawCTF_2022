@@ -7,7 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!--bootstrap css and styles-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="styles/custom.css" />
+        <!--<link rel="stylesheet" type="text/css" href="styles/custom.css" /> -->
+        <link rel="stylesheet" type="text/css" href="styles/fresh.css" /> 
 
         <!-- Owl Carousel -->
         <link rel="stylesheet" href="OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
@@ -38,42 +39,62 @@
               singleItem: true,
               center: true,
               mouseDrag: false,
-              navText:["<div class='btn btn-danger'>prev</div>","<div class='btn btn-danger'>next</div>"],
+              navText:["<div class='btn btn-danger scrollbutton left'><p><</p></div>","<div class='btn btn-danger scrollbutton right'><p>></p></div>"],
               dots: true,
               autoWidth:false,
           });
         });  
         </script> 
     </head>
-    <div class="holder"><div class="test2"><div class="spin3" ><div class="spin2" ><p id="spin2">🍀</p></div></div><p>Loading . . .</p></div></div>
+
+
+    <!--loading screen-->
+    <!--<div class="holder"><div class="test2"><div class="spin3" ><div class="spin2" ><p id="spin2">🍀</p></div></div><p>Loading . . .</p></div></div>-->
 
 <body>
-
-  <div id="nav-placeholder"></div>
-  <div class="container bg-white">
-      <div class ="bg-gradient"> 
-          <p class="text-white">
-              hello world!
-          </p>
+  <div class="page-container">
+  <!--<div id="nav-placeholder"></div>-->
+  <div class="gawNav text-white">
+    <div class="links">
+      <a href="index" class="link"><div class="white-transition">Home</div><img alt="index" class="icon r" src="assets/home.png"></a>
+      <a href="scoreboard" class="link"><div class="white-transitionr">Scores</div><img alt="index" class="icon l" src="assets/podium.png"></a>
+    </div>
+    <div class="">
+      <div class="wrap bg-dark rounded border-border">
+        <h1 class="text-white">
+          <div class='type'></div>
+          gawCTF{_2022_}
+      
+        </h1>
       </div>
+    </div>
+    <div class="links">
+      <a href="index" class="link"><div class="white-transition">Compete</div><img alt="index" class="icon r" src="assets/flag.png"></a>
+      <a href="index" class="link"><div class="white-transitionr">Login</div><img alt="index" class="icon l" src="assets/door.png"></a>
+    </div>
   </div>
-  <div class="container bg-dark pt-5">
+
+  <div class="container pt-5">
+    <div class="banner text-white">Challenges</div>
     <div class="owl-carousel owl-theme" id="ctf-carousel">
       
     </div>
   </div>
-
+  <div class="foot text-white">
+    gawCTF 2022 is hosted by Black Falcons
+  </div>
+  </div>
   <template id="slide-template"> 
     <div id="slide" class="card item">
       <div class="card-body">
         <center>
-          <h1 class="card-title" id="challengetitle">Intro to Stego!</h1>
+          <span class="underlines"><h1 class="card-title" id="challengetitle">Intro to Stego!</h1></span>
           
         </center>
         <p id="challengetext">placeholder text</p>
         <form id="inputBox" class="form-inline flagform" onsubmit="authCookies(this.id); return false;">
           <input class="form-control" placeholder="gawCTF{FLAG}">
-          <button class="btn btn-outline-success" type="submit">SUBMIT!</button>
+          <button class="btn btn-outline-danger" type="submit">SUBMIT!</button>
         </form>
       </div>
       <center><p class="card-footer">
@@ -104,6 +125,9 @@
       </div>
     </div>
   </template>
+  <div class="bottom-box">
+    <div class="testing">123</div>
+  </div>
 </body>
 
 <div role="alert" id="alert-authfailonsubmit" aria-live="assertive" aria-atomic="true" class="toast bg-dark" style="position: absolute; top: 20%; right: 5%;">
