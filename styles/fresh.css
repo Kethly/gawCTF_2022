@@ -32,7 +32,6 @@
     padding: 20px;
     background:transparent;
     color:white;
-
 }
 
 #ctf-carousel .item{
@@ -177,7 +176,7 @@ body{
     padding: 10px;
     position:absolute;
     border: 5px solid var(--border-color);
-    font-size: 50px;
+    font-size: 35px;
     font-weight:500;
     margin-top: -5%;
     margin-left: -150px;
@@ -226,8 +225,9 @@ body{
 }
 .toast.show {
     z-index:4;
-
+    
 }
+
 .bottom-box{
     width: 15%;
     height: 35%;
@@ -324,4 +324,17 @@ body{
 }
 .current-page{
     border: 5px solid var(--border-color);
+}
+
+.owl-nav .owl-prev,
+.owl-nav .owl-next {
+    position: absolute;
+    top: 13%;
+    left: 7%;
+    transform: translate(0,-50%);
+}
+
+.owl-nav .owl-next {
+    left: auto;
+    right: 7%;
 }
