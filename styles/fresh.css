@@ -101,6 +101,7 @@
     color:white;
 }
 .container{
+    positioN:relative;
     background-color: var(--dark-inner);
     padding-bottom: 10px;
     border-radius: 10px;
@@ -427,4 +428,30 @@ body{
     height: 65px;
     transition: width 0.8s;
     text-align:center;
+}
+#loginboard{
+    max-width: 45%;
+}
+.log.card{
+    border:none;
+    background-color: var(--dark-inner);
+}
+.log.banner{
+    
+    display:block;
+    padding: 10px;
+    position:absolute;
+    border: 5px solid var(--border-color);
+    font-size: 35px;
+    font-weight:500;
+
+    background-color: var(--lightdark-inner);
+    z-index: 3;
+    border-radius: 5px;
+    text-align:center;
+}
+.form-control.log{
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 50%;
 }
