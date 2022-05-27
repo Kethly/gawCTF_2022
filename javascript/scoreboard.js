@@ -1,3 +1,17 @@
+function getCookie(cname) {
+  let name = cname + "=";
+  let ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
 async function getScoreboard(){
   var publicdata = await fetch("https://opensheet.elk.sh/1XBd9iby84O-jNv0Wuvzewtm9ZKyEn87NpFmSIy-8HVA/scoreboard");
   var responses = await publicdata.json();
@@ -13,10 +27,9 @@ async function getScoreboard(){
     var newRow = tBody.insertRow();
     var usercell = newRow.insertCell(0);
     var scorecell = newRow.insertCell(1);
-    usercell.innerHTML = responses[i]["user"];
+    usercell.textContent = responses[i]["user"];
     usercell.setAttribute("id", responses[i]["user"]);
-    scorecell.innerHTML = responses[i]["score"];
-
+    scorecell.textContent = responses[i]["score"];
     // const scoreitem = document.createElement("p");
     // const node = document.createTextNode(responses[i]["user"] + " " + responses[i]["score"]);
     // scoreitem.appendChild(node);
@@ -25,6 +38,8 @@ async function getScoreboard(){
   }
   //note to self: add this later for users that are logged in
   //location.href = "#test";
+  document.getElementsByClassName("holder")[0].style["display"] = "none";
+
 }
 
 getScoreboard();

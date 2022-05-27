@@ -25,17 +25,19 @@ function checkLogin(){
     password = getCookie("password");
     userId = getCookie("userId");
     if(email && password && userId){ //note, this may be better to process clientwise instead of in authCookies in order to prevent people from spamming empty cookies
-        var logout = document.getElementById("logswitch");
+        var logout = document.getElementById("logtext");
+        var logouthref = document.getElementById('logswitch')
         logout.textContent = "Logout";
-        logout.addEventListener("click", () => {
+        logouthref.addEventListener("click", () => {
             eraseCookie("email");
             eraseCookie("password");
             eraseCookie("userId");
         });
-        logout.href = "login";
+        logouthref.href = "login";
     }
 }
 
-window.onload = function() {
+window.onload = () => {
+    console.log("testing");
     checkLogin();
   };

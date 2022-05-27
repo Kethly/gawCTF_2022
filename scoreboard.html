@@ -16,7 +16,7 @@
         <script language="JavaScript" type="text/javascript" src="javascript/startup.js"></script>
     </head>
 
-    <body>
+    <body style="position:relative;">
         <!--Replace href with home later-->
         <!--<div id="nav-placeholder"></div>-->
         <div class="gawNav text-white">
@@ -35,13 +35,14 @@
             </div>
             <div class="links">
                 <a href="index" class="link"><div class="white-transition">Compete</div><img alt="index" class="icon r" src="assets/flag.png"></a>
-                <a href="login" class="link"><div class="white-transitionr">Login</div><img alt="index" class="icon l" src="assets/door.png"></a>
+                <a href="login" class="link" id="logswitch"><div class="white-transitionr" id="logtext">Login</div><img alt="index" class="icon l" src="assets/door.png"></a>
             </div>
             </div>
         
 
-        <div class="d-flex justify-content-evenly">
-            <table id="scoreboard" class="table table-bordered table-hover table-dark">
+        <div class="mt-4 scoretable">
+            
+            <table id="scoreboard" class="table table-bordered table-hover table-dark" >
                 <thead>
                     <tr class="thead-dark">
                         <th scope="col">Username</th>
@@ -53,7 +54,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="holder"><div class="test2"><div class="spin3" ><div class="spin2" ><p id="spin2">🍀</p></div></div><p>Loading . . .</p></div></div>
+        <div class="holder"><div class="test2"><div class="spin3" ><div class="spin2" ><p id="spin2">🍀</p></div></div><p class="text-white">Loading . . .</p></div></div>
 
     </body>
 </html>

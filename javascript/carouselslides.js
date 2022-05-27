@@ -24,7 +24,7 @@ async function makeCarouselSlides(){
 
       for(var i = 0; i < Object.keys(responses).length; i++){
         // responses[i] should have all data for one challenge
-        console.log(JSON.stringify(responses[i]) + "\n");
+        //console.log(JSON.stringify(responses[i]) + "\n");
         // make a copy of the template
         var newSlide = document.importNode(template.content, true);
         // set the title text and set the id
@@ -78,7 +78,7 @@ async function makeCarouselSlides(){
     }, 250)
     
   }
-window.onload = () => {
+
   makeCarouselSlides();
-}
+
  
