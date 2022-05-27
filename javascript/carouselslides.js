@@ -31,6 +31,12 @@ async function makeCarouselSlides(){
       
       // set the challenge text and set the id
       var challengehtml = newSlide.getElementById("challengetext");
+<<<<<<< HEAD
+=======
+      challengehtml.textContent = "";
+      newlineformattedtext = responses[i]["challengetext"].replace( new RegExp("\\\\n", 'g'), "\r\n");
+      $(challengehtml).append(newlineformattedtext);
+>>>>>>> d852253a83f374ad42faeede251e28cab78772bd
       challengehtml.id = "challengetext"+i;
 
       challengehtml.textContent = "";
