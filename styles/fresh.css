@@ -423,7 +423,7 @@ body{
     z-index:-15;
 }
 #loginbtn{
-    width: 30%;
+    width: 50%;
     height: 65px;
     transition: width 0.8s;
     text-align:center;
@@ -434,6 +434,9 @@ body{
 .log.card{
     border:none;
     background-color: var(--dark-inner);
+    width: 40%;
+    margin: auto;
+    margin-top: 20px;
 }
 .log.banner{
     
@@ -443,16 +446,19 @@ body{
     border: 5px solid var(--border-color);
     font-size: 35px;
     font-weight:500;
+    max-width: 500px;
 
     background-color: var(--lightdark-inner);
     z-index: 3;
     border-radius: 5px;
     text-align:center;
+    margin-top: -10px;
+    right:95%;
 }
 .form-control.log{
     margin-right: auto;
     margin-left: auto;
-    max-width: 50%;
+    max-width: 70%;
 }
 .scoreboard{
     max-width: 80%;
