@@ -56,7 +56,11 @@ function checkFlag(inputBoxId, submission){
     */
     return new Promise(function(resolve, reject){
         let spreadsheetId = '15VYcKvXIXfGaLPMzBojLMOnt-ajWn505lNzWwTmNoD0';
-        let sheetRange = 'flags!A2:D2';
+        // calculate the column number
+        var colnum = parseInt(inputBoxId.replace(/\D/g, ""), 10);
+        var problemColCode = getColCode(colnum);
+        let sheetRange = 'flags!'+problemColCode+'2:'+problemColCode+'2';
+        console.log("checking this colcode: " + problemColCode);
         let sheets = google.sheets('v4');
 
         sheets.spreadsheets.values.get({
@@ -73,12 +77,10 @@ function checkFlag(inputBoxId, submission){
             else{
                 console.log("checkFlag got this data: " + response.data.values);
                 // all hashes are in the first row
-                // calculate the column number
-                var colnum = parseInt(inputBoxId.replace(/\D/g, ""), 10);
-                console.log("checkFlag is checking against this flag hash: " + response.data.values[0][colnum]);
+                console.log("checkFlag is checking against this flag hash: " + response.data.values[0][0]);
                 
                 // compare the hashes to determine if the flag was correct
-                if(submission.hashCode().toString() === response.data.values[0][colnum]){
+                if(submission.hashCode().toString() === response.data.values[0][0]){
                     console.log("checkFlag: The flag is correct!");
                     resolve(true);
                     return;
@@ -94,7 +96,7 @@ function checkFlag(inputBoxId, submission){
 }
 
 
-function getColCode(questionId){
+function getColCode(colnum){
     // This function is to be used in writeSubmission()
     // determine the columnId (eg. A, B, AA, etc)
     // based on the questionIds, which are integers starting from 0
@@ -105,12 +107,12 @@ function getColCode(questionId){
     // this function only works if the column code is 2 letters long
     var colCode = "";
 
-    // questionIds start at 0, but the actual data starts at column B
-    questionId += 1;
+    // remember for writing to the submits spreadsheet, values start in col B
+    // questionId += 1;
     // ascii code for A is 65
-    colCode += String.fromCharCode(questionId%26+65);
-    if(questionId >= 26){
-        colCode = String.fromCharCode(questionId/26-1+65) + colCode;
+    colCode += String.fromCharCode(colnum%26+65);
+    if(colnum >= 26){
+        colCode = String.fromCharCode(colnum/26-1+65) + colCode;
     }
     return colCode;
 }
@@ -128,7 +130,7 @@ function writeSubmission(inputBoxId, userId, submission){
         to the submits sheet on the private database 
     */
     return new Promise(function(resolve, reject){
-        var questionId = parseInt(inputBoxId.replace(/\D/g, ""), 10);
+        var questionId = parseInt(inputBoxId.replace(/\D/g, ""), 10) + 1;
 
         let spreadsheetId = '15VYcKvXIXfGaLPMzBojLMOnt-ajWn505lNzWwTmNoD0';
         let sheetRange = 'submits!'+getColCode(questionId)+userId+':'+getColCode(questionId)+userId;
