@@ -45,25 +45,27 @@
             <a href="login" class="link" id="logswitch"><div class="white-transitionr" id="logtext">Login</div><img alt="index" class="icon l" src="assets/door.png"></a>
           </div>
         </div> 
-            <div class="card log text-white">
-              <div class="banner text-white log">Login</div>
+            <div class="card home text-white">
+              <div class="banner text-white card home">Home</div>
               <div class="card-body text-center">
-                <form onsubmit="auth(); return false;">
-                  <h3 class="card-title fw-bold mb-2 text-uppercase">Please enter your email and password!</h3>
-                  <div class="form-outline form-white mb-1">
-                    <label class="form-label" for="typeEmailX">Email</label>
-                    <input type="email" id="typeEmailX" class="form-control form-control-lg has-validation log" required="required"/>
-                  </div>
-
-                  <div class="form-outline form-white mb-1">
-                    <label class="form-label" for="typePasswordX">Password</label>
-                    <input type="password" id="typePasswordX" class="form-control form-control-lg log" required="required"/>
-                  </div>
-
-                  <p class="small mb-4 pb-lg-2 text-white-50">Forgot password? Contact zye@students.wcpss.net</p>
-                  <button class="btn btn-outline-light btn-lg px-5" id="loginbtn" type="submit" ><div class="test"hidden id="loginspin" role="status" aria-hidden="true"><div class="spin" ><p id="poopspin">💩</p></div></div><span id="logintext">Login</span></button>
-                  <p class="mt-4">Don't have an account? <a href="register" class="text-white-50 fw-bold">Sign Up</a></p>
-                </form>
+                <div class = "card-title">
+                    <h3>About</h3>
+                </div>
+                <div>
+                    <p>gawCTF is designed to be an enjoyable training activity for our Black Falcons, and anyone else interested in cybersecurity.
+                    Development for gawCTF began in 2019, with many Black Falcons, now alumni, designing various creative cybersecurity-related challenges.
+                    In 2022, development of the gawCTF website began, for launch in the summer of the same year.
+                    We hope that everyone has a fun experience with this capture the flag, and good luck!
+                    </p>
+                </div>
+                <div class = "card-title">
+                    <h3>Credits</h3>
+                </div>
+                <div>
+                    <p>2019-2020 generation of Black Falcons (contributors of the challenges)</p>
+                    <p>Thien Do (web development)</p>
+                    <p>Zhijia Ye (web development)</p>
+                </div>
               </div>
             </div>
         
@@ -74,32 +76,5 @@
         </div>
       </div>
     </body>
-
-        <div role="alert" id="alert-fail" aria-live="assertive" aria-atomic="true" class="toast bg-dark" style="position: absolute; top: 20%; right: 5%;">
-        <div class="toast-header text-danger">
-            <h2 class="rounded mr-2">👻</h2>
-            <strong class="mr-auto">gawBot</strong>
-            <small class="ml-2">warning!</small>
-            <button type="button" class="mb-1 close" data-bs-dismiss="toast" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="pl-3 mb-2 toast-body text-white">
-          login error, please try again
-        </div>
-      </div>
-      <div role="alert" id="alert-success" aria-live="assertive" aria-atomic="true" class="toast bg-white" style="position: absolute; top: 20%; right: 5%;">
-        <div class="toast-header ">
-            <h2 class="rounded mr-2">🎉</h2>
-          <strong class="mr-auto">gawBot</strong>
-          <small class="ml-2">success!</small>
-          <button type="button" class="mb-1 close" data-bs-dismiss="toast" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="pl-3 mb-2 toast-body">
-          you are now logged in!
-        </div>
-      </div>
 
   </html>

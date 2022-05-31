@@ -253,6 +253,12 @@ body{
     transition-property: left;
     transition-duration: 0.5s;
 }
+.logo{
+    width: 100%;
+    left: 100%;
+    transition-property: left;
+    transition-duration: 0.5s;
+}
 .bottom-box:hover .testing{
     width: 100%;
     left: 100%;
@@ -474,6 +480,10 @@ body{
     max-height: 70%;
     overflow:hidden;
 }
+th{
+    height:20px;
+}
+
 #scoreboard{
     height: 70vh;
     background-color: var(--dark-inner);
@@ -481,4 +491,28 @@ body{
 }
 #scoreboard th{
     background-color: var(--border-color);
+}
+.home.card{
+    border:none;
+    background-color: var(--dark-inner);
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+}
+.home.banner{
+    
+    display:block;
+    padding: 10px;
+    position:absolute;
+    border: 5px solid var(--border-color);
+    font-size: 35px;
+    font-weight:500;
+    max-width: 150px;
+
+    background-color: var(--lightdark-inner);
+    z-index: 3;
+    border-radius: 5px;
+    text-align:center;
+    margin-top: -10px;
+    right:95%;
 }
