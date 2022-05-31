@@ -449,9 +449,7 @@ body{
 .log.card{
     border:none;
     background-color: var(--dark-inner);
-    width: 40%;
-    margin: auto;
-    margin-top: 20px;
+    padding:10px;
 }
 .log.banner{
     
@@ -465,7 +463,7 @@ body{
     z-index: 3;
     border-radius: 5px;
     text-align:center;
-    margin-top: -10px;
+    margin-top: -30px;
     right:95%;
 }
 .form-control.log{
@@ -523,15 +521,30 @@ th{
     margin-top: -10px;
     right:95%;
 }
+.compete.banner{
+    
+    display:block;
+    padding: 10px;
+    position:absolute;
+    border: 5px solid var(--border-color);
+    font-size: 35px;
+    font-weight:500;
+
+    background-color: var(--lightdark-inner);
+    z-index: 3;
+    border-radius: 5px;
+    text-align:center;
+    right:95%;
+}
 .bottomscreen{
-    margin-top: 10vh;
+    margin-top: 5vh;
     display: flex;
     flex-direction:column;
     justify-content: space-between;
     gap:8vh;
 }   
 .bottomscreenreg{
-    margin-top: 8vh;
+    margin-top: 6vh;
     display: flex;
     flex-direction:column;
     justify-content: space-between;

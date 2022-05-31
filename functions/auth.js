@@ -65,8 +65,8 @@ function authUser(email, password){
         }
 
         let index = current_users.indexOf(email.toLowerCase());
-        console.log("authUser: found user at row: " + (index+2) + "when comparing to: " + email.toString().toLowerCase());
-        if(!(index > 0)){
+        console.log("authUser: found user at row: " + (index+2) + " when comparing to: " + email.toString().toLowerCase());
+        if(!((index + 2) > 0)){
             console.log("AuthUser: you don't exist....");
             resolve(-1);
         } 
