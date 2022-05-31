@@ -253,6 +253,12 @@ body{
     transition-property: left;
     transition-duration: 0.5s;
 }
+.logo{
+    width: 100%;
+    left: 100%;
+    transition-property: left;
+    transition-duration: 0.5s;
+}
 .bottom-box:hover .testing{
     width: 100%;
     left: 100%;
@@ -423,12 +429,7 @@ body{
     z-index:-15;
 }
 #loginbtn{
-    margin:auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items:center;
-    width: 300px;
+    width: 50%;
     height: 65px;
     transition: width 0.8s;
 }
@@ -443,6 +444,9 @@ body{
 .log.card{
     border:none;
     background-color: var(--dark-inner);
+    width: 40%;
+    margin: auto;
+    margin-top: 20px;
 }
 .log.banner{
     
@@ -452,15 +456,19 @@ body{
     border: 5px solid var(--border-color);
     font-size: 35px;
     font-weight:500;
+    max-width: 500px;
+
     background-color: var(--lightdark-inner);
     z-index: 3;
     border-radius: 5px;
     text-align:center;
+    margin-top: -10px;
+    right:95%;
 }
 .form-control.log{
     margin-right: auto;
     margin-left: auto;
-    max-width: 50%;
+    max-width: 70%;
 }
 .scoreboard{
     max-width: 80%;
@@ -476,6 +484,10 @@ body{
     max-height: 70%;
     overflow:hidden;
 }
+th{
+    height:20px;
+}
+
 #scoreboard{
     height: 70vh;
     background-color: var(--dark-inner);
@@ -498,3 +510,27 @@ body{
     justify-content: space-between;
     gap:15vh;
 }   
+.home.card{
+    border:none;
+    background-color: var(--dark-inner);
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+}
+.home.banner{
+    
+    display:block;
+    padding: 10px;
+    position:absolute;
+    border: 5px solid var(--border-color);
+    font-size: 35px;
+    font-weight:500;
+    max-width: 150px;
+
+    background-color: var(--lightdark-inner);
+    z-index: 3;
+    border-radius: 5px;
+    text-align:center;
+    margin-top: -10px;
+    right:95%;
+}
