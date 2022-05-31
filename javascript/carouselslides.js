@@ -21,7 +21,6 @@ async function makeCarouselSlides(){
     setTimeout(() => {
       //$(".owl-carousel").trigger('remove.owl.carousel', [1]).trigger('refresh.owl.carousel');
       var template = document.getElementById(templateID);
-
       for(var i = 0; i < Object.keys(responses).length; i++){
         // responses[i] should have all data for one challenge
         //console.log(JSON.stringify(responses[i]) + "\n");
@@ -65,6 +64,7 @@ async function makeCarouselSlides(){
             newSlide.getElementById("hint" + x).remove();
             newSlide.getElementById("hint-btn" + x).remove();
           }
+
         }
   
         // set the id of the new slide
@@ -76,7 +76,7 @@ async function makeCarouselSlides(){
       }
       document.getElementsByClassName("holder")[0].style["z-index"] = 0;
     }, 250)
-    
+  
   }
 
   makeCarouselSlides();

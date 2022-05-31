@@ -180,7 +180,7 @@ body{
     font-size: 35px;
     font-weight:500;
     margin-top: -10%;
-    margin-left: -150px;
+    right:100%;
     background-color: var(--lightdark-inner);
     z-index: 3;
     border-radius: 5px;
@@ -355,7 +355,7 @@ body{
   .spin {
     width: 50px;
     height: 50px;
-
+    display:block;
     animation-name: spin;
     animation-duration: 800ms;
     padding-bottom:5%;
@@ -429,12 +429,21 @@ body{
     z-index:-15;
 }
 #loginbtn{
-    width: 50%;
+    margin:auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+    width: 300px;
     height: 65px;
     transition: width 0.8s;
-    text-align:center;
+}
+#loginspin{
+    margin:auto;
 }
 #loginboard{
+    position:relative;
+    margin:auto;
     max-width: 45%;
 }
 .log.card{
@@ -452,8 +461,6 @@ body{
     border: 5px solid var(--border-color);
     font-size: 35px;
     font-weight:500;
-    max-width: 500px;
-
     background-color: var(--lightdark-inner);
     z-index: 3;
     border-radius: 5px;
@@ -516,3 +523,17 @@ th{
     margin-top: -10px;
     right:95%;
 }
+.bottomscreen{
+    margin-top: 10vh;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+    gap:8vh;
+}   
+.bottomscreenreg{
+    margin-top: 8vh;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+    gap:15vh;
+}   

@@ -35,7 +35,13 @@ function getCookie(cname) {
 
 // this program is expected to be used after a person logs in
 
-async function authCookies(inputBoxId){
+async function authCookies(event){
+    console.log(event);
+    let children = Array.from(event.children);
+    for(let x = 0; x < children.length; x++){
+        children[x].disabled = true;
+    }
+    let inputBoxId = event.id;
     // inputBoxId should be the id of the element calling this function
     console.log("submitFlag.js is using this inputBoxId: " + inputBoxId);
     email = getCookie("email");
@@ -92,5 +98,8 @@ async function authCookies(inputBoxId){
     else{
         // the user authentication was unsuccessful
         $('#alert-authfailonsubmit').toast('show');
+    }
+    for(let x = 0; x < children.length; x++){
+        children[x].disabled = false;
     }
 }

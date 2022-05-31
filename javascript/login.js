@@ -9,7 +9,6 @@ function setCookie(cname, cvalue, exdays) {
 //var email = "keth"
 var loginbuttonwidth;
 window.onload = (event) => {
-  console.log("hi");
   loginbuttonwidth = document.getElementById("loginbtn").clientWidth;
   document.getElementById("loginbtn").style.width = ((loginbuttonwidth).toString() + "px").toString();
   
@@ -19,17 +18,16 @@ window.onload = (event) => {
 function setLoad(){
     document.getElementById("loginbtn").disabled = true;
     document.getElementById("loginbtn").style.width = ((loginbuttonwidth * 0.7).toString() + "px").toString();
-    document.getElementById("logintext").hidden = true;
+    document.getElementById("logintext").style.display = "none";
     
-    document.getElementById("loginspin").hidden = false;
+    document.getElementById("loginspin").style.display = "block";
 }
 function resetLogin(){
   
   return new Promise((resolve) => {
-    console.log("testing");
     document.getElementById("loginbtn").disabled = false;
-    document.getElementById("logintext").hidden = false;
-    document.getElementById("loginspin").hidden = true;
+    document.getElementById("logintext").style.display = "block";
+    document.getElementById("loginspin").style.display = "none";
     document.getElementById("loginbtn").style.width = ((loginbuttonwidth).toString() + "px").toString();
     resolve();
   });

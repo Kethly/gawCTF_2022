@@ -11,7 +11,7 @@
         
         <!-- Jquery and bootstrap js -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script language="JavaScript" type="text/javascript" src="javascript/register.js"></script>
         
         <!--<script>
@@ -44,35 +44,40 @@
             <a href="index" class="link"><div class="white-transition">Compete</div><img alt="index" class="icon r" src="assets/flag.png"></a>
             <a href="login" class="link" id="logswitch"><div class="white-transitionr" id="logtext">Login</div><img alt="index" class="icon l" src="assets/door.png"></a>
           </div>
-        </div> 
-            <div class="card log text-white">
-              <div class="banner text-white log">Register</div>
-              <div class="card-body text-center">
-                <form onsubmit="auth(); return false;">
-                  <h3 class="card-title fw-bold mb-2 text-uppercase ">Please fill out the following fields</h3>
-                  <label class="form-label" for="typeUsernameX">Username</label>
-                  <input type="name" id="typeUsernameX" class="form-control form-control-lg has-validation log" required="required"/>
-
-                  <div class="form-outline form-white mb-1">
-                    <label class="form-label" for="typeEmailX">Email</label>
-                    <input type="email" id="typeEmailX" class="form-control form-control-lg has-validation log" required="required"/>
-                  </div>
-                  <div class="form-outline form-white mb-1">
-                    <label class="form-label" for="typePasswordX">Password</label>
-                    <input type="password" id="typePasswordX" class="form-control form-control-lg log" required="required"/>
-                  </div>
-                  <button class="btn btn-outline-light btn-lg px-5" id="loginbtn" type="submit" ><div class="test"hidden id="loginspin" role="status" aria-hidden="true"><div class="spin" ><p id="poopspin">💩</p></div></div><span id="logintext">Register</span></button>
-                </form>
-              </div>
+        </div>
+        <div class="bottomscreenreg">
+          <div class="pt-4" id="loginboard">
+            <div class="banner text-white log">Register</div>
+              <div class="card log text-white">
+                <div class="card-body text-center">
+                  <form onsubmit="auth(); return false;">
+                    <h3 class="card-title fw-bold mb-2 text-uppercase ">Please fill out the following fields</h3>
+                    <label class="form-label" for="typeUsernameX">Username</label>
+                    <input type="name" id="typeUsernameX" class="form-control form-control-lg has-validation log" required="required"/>
+  
+                    <div class="form-outline form-white mb-1">
+                      <label class="form-label" for="typeEmailX">Email</label>
+                      <input type="email" id="typeEmailX" class="form-control form-control-lg has-validation log" required="required"/>
+                    </div>
+                    <div class="form-outline form-white mb-1">
+                      <label class="form-label" for="typePasswordX">Password</label>
+                      <input type="password" id="typePasswordX" class="form-control form-control-lg log" required="required"/>
+                    </div>
+                    <button class="btn btn-outline-light btn-lg px-5" id="loginbtn" type="submit"><div class="test" id="loginspin" style="display:none;"><div class="spin" ><p id="poopspin">💩</p></div></div><span id="logintext">Login</span></button>
+                  </form>
+                </div>
+            </div>
           </div> 
-        <div>
-          <div class="foot text-white">
-            gawCTF 2022 is hosted by Black Falcons
+          <div>
+            <div class="foot text-white">
+              gawCTF 2022 is hosted by Black Falcons
+            </div>
           </div>
         </div>
-      </div>
+        </div>
+        
     </body>
-    <div role="alert" id="alert-fail" aria-live="assertive" aria-atomic="true" class="toast bg-dark" style="position: absolute; top: 20%; right: 5%;">
+    <div role="alert" id="alert-fail" aria-live="assertive" data-autohide="false" aria-atomic="true" class="toast bg-dark" style="position: absolute; top: 20%; right: 5%;">
         <div class="toast-header text-danger">
             <h2 class="rounded mr-2">👻</h2>
             <strong class="mr-auto">gawBot</strong>
@@ -85,7 +90,7 @@
           login error, please try again
         </div>
     </div>
-    <div role="alert" id="alert-success" aria-live="assertive" aria-atomic="true" class="toast bg-white" style="position: absolute; top: 20%; right: 5%;">
+    <div role="alert" id="alert-success" data-autohide="false" aria-live="assertive" aria-atomic="true" class="toast bg-white" style="position: absolute; top: 20%; right: 5%;">
       <div class="toast-header ">
           <h2 class="rounded mr-2">🎉</h2>
         <strong class="mr-auto">gawBot</strong>
